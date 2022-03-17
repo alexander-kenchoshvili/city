@@ -1,0 +1,86 @@
+.about-section{
+    padding-top: 80px;
+}
+.board,
+.photo-gallery,
+.video-gallery{
+    border: 1px solid #D2D4DA;
+    padding: 24px;
+    margin-top: 48px;
+}
+.slick-prev:before{
+    content: url(../../assets/images/arrow-rightSlider.svg);
+}
+.slick-prev{
+    transform: translate(-36px,-30px);
+}
+.slick-next{
+    transform: rotate(180deg)translate(-36px,26px)
+}
+.slick-next::before{
+    content: url(../../assets//images/arrow-leftSlider.svg);
+    
+}
+.about-head{
+    display: flex;
+    justify-content: center;
+    padding-top: 48px;
+    color: #101223;
+    font-size: 36px;
+    font-family: caps;
+}
+.history-theatre{
+    margin-top: 24px;
+    padding: 24px;
+    border: 1px solid #D2D4DA;
+    border-radius: 5px;
+}
+.history-theatre >h3{
+    color: #101223;
+    font-size: 18px;
+    font-family: caps;
+    margin: 0;
+}
+
+.history-theatre >p{
+    margin-top: 12px;
+    color: #101223;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+.board-header >h3,
+.photo-gallery-header >h3{
+    color: #101223;
+    font-size: 18px;
+    font-family: caps;
+    margin: 0px;
+}
+.board-header,
+.photo-gallery-header,
+.video-gallery-header{
+    margin-bottom: 12px;
+}
+.board-header svg,
+.photo-gallery-header svg,
+.history-theatre svg{
+    margin-right: 6px;
+}
+.poster-left >a {
+    color: transparent;
+    text-decoration: none;
+}
+.board-members >a{
+    text-decoration: none;
+}
+.board-members h4{
+    margin-top: 6px;
+    font-size: 15px;
+    color: #101223;
+    margin-bottom: 0px;
+}
+.board-members span{
+    color: #D02F27;
+    font-size: 13px;
+    font-family: medium;
+    margin-top: 7px;
+}

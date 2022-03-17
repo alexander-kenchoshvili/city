@@ -1,0 +1,40 @@
+.performance-section{
+    padding-top: 80px;
+}
+.all-performance-btn button,
+.day-performance-btn button{
+    width: 100%;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    color: #282A3A;
+    font-family: 'medium';
+    font-size: 16px;
+    padding: 12px;
+}
+.performance-list{
+    padding-top: 48px;
+}
+.performance a{
+    text-decoration: none;
+}
+.performance-caption{
+    margin-top: 12px;
+}
+.performance-caption span {
+    color: #D02F27;
+    font-size: 14px;
+    font-family: medium;
+}   
+.performance-caption >h2{
+    color: #101223;
+    font-size: 24px;
+    font-family: caps;
+    margin: 0;
+}
+.performance-caption >p{
+    color: #5B5D6B;
+    font-size: 14px;
+    font-family: medium;
+    margin-top: 12px;
+}

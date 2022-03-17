@@ -1,0 +1,46 @@
+.sidebar{
+    padding-top: 80px;
+}
+.side-content{
+    padding-top: 48px;
+}
+.side-content ul{
+    width: 282px;
+    background: white;
+    list-style: none;
+    margin: 0;
+    padding-left: 24px;
+    padding-bottom: 24px;
+    border-radius: 5px;
+}
+.side-content a{
+    text-decoration: none;
+    color: #101223;
+    font-size: 16px;
+    font-family: medium;
+    position: relative;
+}
+.side-content a:hover{
+    color: #101223;
+}
+.side-content li{
+    padding-top: 18px;
+    padding-left: 24px;
+   
+}
+.side-list.active{
+    color: #D02F27;
+}
+.side-list.active:hover{
+    color: #D02F27;
+}
+.side-list.active:before{
+    content:'';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: #D02F27;
+    border-radius: 5px;
+    top: 0;
+    left: -47px;
+}

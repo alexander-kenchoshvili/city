@@ -1,0 +1,121 @@
+.person-inputs{
+    width: 384px;
+    margin: 24px auto auto auto;
+}
+.person-inputs form{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 24px;
+}
+.person-input input{
+    width: 100%;
+    border: 1px solid #D2D4DA;
+    border-radius: 5px;
+    outline: none;
+    padding: 11px 12px;
+    margin-top: 6px;
+}
+.person-input input::placeholder{
+    color: #9496A1;
+    font-size: 14px;
+    font-family: medium;
+}
+.person-input label{
+    color: #101223;
+    font-size: 14px;
+    font-family: 'medium';
+    margin-left: 12px;
+}
+.credit-cards{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.credit-cards >h4{
+    margin-top: 24px;
+    color: #101223;
+    font-size: 14px;
+    font-family: medium;
+}
+.credit-cards span{
+    color: #D02F27;
+    font-size: 14px;
+    font-family: medium;
+}
+.transfer-btn button{
+    width: 100%;
+    border: none;
+    background: #D02F27;
+    color: white;
+    font-size: 18px;
+    font-family: 'caps';
+    border-radius: 5px;
+    padding: 11px;
+}
+.donors{
+    padding-top: 96px;
+}
+.donor-header{
+    display: flex;
+    justify-content: center;
+    color: #101223;
+    font-family: 'caps';
+    font-size: 36px;
+}
+.donor-list{
+    margin-top: 24px;
+    background-color: white;
+    border-radius: 5px;
+    
+}
+.donor-title{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 133px 15px 24px;
+    border-bottom: 1px solid #D02F27;
+  
+}
+.right-title{
+    display: flex;
+}
+.donor-title >h2,
+.donor-date,
+.donor-money{
+    color: #101223;
+    font-family: caps;
+    font-size: 14px;
+    margin: 0;
+}
+.donor-money{
+    margin-left: 143px;
+}
+.donor-members{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 133px 12px 24px;
+    border-bottom: 1px solid rgb(235, 230, 230);
+}
+.donor-name{
+    color: #101223;
+    font-family: medium;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.donor-date-info{
+    color: #101223;
+    font-family: 'medium';
+    font-size: 14px;
+}
+.donor-money-info{
+    color: #101223;
+    font-family: 'medium';
+    font-size: 14px;
+    margin-left: 114px;
+    margin-right: 6px;
+}
+.donor-members:last-child{
+    border:none;
+}

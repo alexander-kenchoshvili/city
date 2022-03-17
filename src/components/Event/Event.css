@@ -1,0 +1,69 @@
+
+.event-section{
+    min-height: calc(100vh - 128px);
+    padding-top: 80px;
+}
+.event-items form{
+    padding-top: 48px;
+}
+.card-item >h2{
+    color: #D02F27;
+    font-size: 32px;
+    font-family: caps;
+    margin: 0;
+}
+.card-item img{
+    margin-top: 24px;
+}
+.input-frame{
+    margin-top: 48px;
+}
+.event-table{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+.event-table a{
+    border: none;
+    border-radius: 5px;
+    background-color: #D02F27;
+    padding: 15px 24px;
+    text-decoration: none;
+ 
+}
+.ticket{
+    color: white;
+    font-size: 14px;
+    font-family: caps;
+    position: relative;
+}
+.ticket-price{
+    color: white;
+    font-family: regular;
+    margin-left: 25px;
+}
+.ticket::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 24px;
+    background-color: #981B15;
+    top:-3px;
+    left: 92px;
+}
+.starting-time >h3,
+.event-duration >h3,
+.genre >h3{
+    font-family: medium;
+    font-size: 14px;
+    color: #404252;
+    margin: 0;
+}
+.starting-time span,
+.event-duration span,
+.genre span{
+    font-family: caps;
+    font-size: 20px;
+    color: #101223;
+}

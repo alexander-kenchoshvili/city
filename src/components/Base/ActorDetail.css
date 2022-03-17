@@ -1,0 +1,117 @@
+.actors-section{
+    padding-top: 80px;
+}
+.actors-cover{
+    height: 300px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
+
+.actor-header{
+    width: 1200px;
+    position: absolute;
+    bottom: -120px;
+}
+.actor-head{
+    display: flex;
+}
+.actor-header-info{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 24px;
+    padding-top: 48px;
+}
+.actor-info{
+    padding-top: 24px;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+}
+.actor-info >h2{
+    color: #101223;
+    font-family: caps;
+    font-size: 36px;
+    margin: 0px;
+}
+.actor-info .actor-profession{
+    color: #D02F27;
+    font-family: medium;
+    font-size: 15px;
+}
+.actor-info .actor-age{
+    margin-top: 6px;
+    color: #101223;
+    font-family: medium;
+    font-size: 16px;
+}
+.actor-header-info .social-network{
+    padding-top: 24px;
+}
+.actor-content{
+    padding-top: 120px;
+    margin-top: 24px;
+}
+.actor-bio{
+    padding: 26px 24px;
+    background-color: white;
+}
+.bio-describtion >h2{
+    color: #101223;
+    font-size: 16px;
+    font-family: caps;
+    cursor: default;
+}
+.bio-describtion svg{
+    margin-right: 12px;
+}
+.bio-describtion >p{
+    color: #101223;
+    font-size: 16px;
+}
+.my-performance{
+    margin-top:24px;
+    padding: 26px 24px;
+    background-color: white;
+}
+.my-performance >h2{
+    font-family: caps;
+    font-size: 18px;
+    color: #101223;
+}
+.my-performance svg{
+    margin-right: 12px;
+}
+.performances a{
+    text-decoration: none;
+}
+.performances a >h3{
+    color: #101223;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+.performances a span{
+    font-size: 14px;
+    font-family: medium;
+    color: #D02F27;
+    display: block;
+    margin-top: 6px;
+}
+.my-gallery{
+    margin-top: 24px;
+    padding: 24px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(8,1fr) ;
+    grid-gap: 16px;
+}
+.my-gallery img{
+    transition: all .5s;
+}
+.my-gallery img:hover{
+    transform: scale(1.2);
+}

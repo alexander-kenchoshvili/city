@@ -1,0 +1,50 @@
+.my-profile{
+    padding-top: 80px;
+    margin-left: 24px;
+    width: 100%;
+}
+.profile-inner{
+    margin-top: 48px;
+    background-color: white;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px;
+}
+.profile-inputs label{
+    color: #101223;
+    font-size: 14px;
+    font-family: medium;
+    margin-left: 12px;
+}
+.profile-inputs input{
+    margin-top: 6px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #D2D4DA;
+    border-radius: 5px;
+    padding: 11px 12px;
+}
+.profile-inputs input::placeholder{
+    color: #9496A1;
+    font-size: 16px;
+    font-family: medium;
+ 
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.save-info-btn{
+    width: 156px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #D02F27;
+    color: white;
+    font-family: caps;
+    font-size: 18px;
+    padding: 13px 0;
+
+}

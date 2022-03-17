@@ -1,0 +1,75 @@
+.rent-section{
+    padding-top: 80px;
+}
+.rent-header{
+    display: flex;
+    justify-content: center;
+    padding-top: 48px;
+    color: #101223;
+    font-family: caps;
+    font-size: 36px;
+    cursor: default;
+}
+.rent-img{
+    padding-top: 48px;
+}
+.rent-content{
+    padding-top: 24px;
+}
+.rent-address{
+    display: flex;
+}
+.rent-street span{
+    color: #404252;
+    font-family: medium;
+    font-size: 14px;
+    display: block;
+}
+.rent-street >a{
+    font-family: 'caps';
+    color: #101223;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.rent-number{
+    margin-left: 52px;
+}
+.rent-number span{
+    display: block;
+}
+.rent-number a{
+    text-decoration: none;
+    color: #101223;
+    font-size: 20px;
+    font-family: 'caps';
+    transition: 0.5s;
+}
+.rent-street a:hover,
+.rent-number a:hover{
+    color: #D02F27;
+}
+.about-hall{
+    padding-top: 24px;
+}
+.about-hall >h3,
+.rent-conditions >h3{
+    color: #101223;
+    font-size: 18px;
+    font-family: caps;
+    margin: 0;
+}
+.about-hall svg,
+.rent-conditions svg{
+    margin-right: 6px;
+}
+.about-hall >p,
+.rent-conditions >p{
+    color: #101223;
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-top: 12px;
+}
+.rent-conditions{
+    padding-top: 24px;
+}

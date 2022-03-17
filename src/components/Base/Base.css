@@ -1,0 +1,131 @@
+.base-head{
+    color: #101223;
+    font-family: caps;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    cursor: default;
+    padding-top: 48px;
+}
+.base{
+    padding-top: 80px;
+    min-height: calc(100vh - 128px);
+}
+.actor-list{
+    padding-top: 48px;
+}
+#arrow-down{
+    transform: rotate(270deg);
+}
+#arrow-up{
+    transform: rotate(90deg);
+}
+
+.input-frame svg{
+    position: absolute;
+    right: 12px;
+    top: 36%;
+}
+.input-frame input{
+    height: 48px;
+    width: 100%;
+    padding: 0px 12px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.input-frame input::placeholder{
+    font-size: 14px;
+    color: #777986;
+    font-family: medium;
+}
+.input-frame .select{
+    background: white;
+    height: 48px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 12px;
+    cursor: pointer;
+    
+}
+.input-frame .select::placeholder{
+    color: #101223;
+    font-size: 14px;
+    font-family: medium;
+}
+.input-frame .select span{
+    font-size: 14px;
+    color: #101223;
+    font-family: 'medium';
+}
+.search-btn{
+    background-color: #D02F27;
+    width: 100%;
+    height: 48px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'caps';
+}
+.search-btn svg{
+    margin-right: 14px;
+}
+.input-frame .select-field{
+    position: relative;
+
+}
+.select-field .selected{
+    background: white;
+    position: absolute;
+    width: 100%;
+    top: 51px;
+    left: 0;
+    overflow: hidden;
+    height: 0px;
+    transition: all 0.5s;
+    z-index: 222;
+}
+.selected ul{
+    list-style: none;
+    padding: 0px 12px;
+    margin: 0;
+}
+.selected li{
+    font-size: 14px;
+    font-family: 'medium';
+    color: #101223;
+    padding: 5px 0px;
+    cursor: pointer;
+}
+.selected.active{
+    height: 160px;
+}
+.actor-photo{
+  text-decoration: none;
+}
+.actor-photo img{
+    transition: all 0.5s;
+}
+.actor-photo img:hover{
+    transform: scale(1.05);
+}
+.actor-photo >h2{
+    font-size: 16px;
+    color: #101223;
+    margin-top: 6px;
+    margin-bottom: 0px;
+    transition: 0.5s;
+}
+.actor-photo span{
+    font-size: 14px;
+    color: #D02F27;
+}
+.actor-photo >h2:hover,
+.actor-photo span:hover{
+    font-weight: bold;
+}

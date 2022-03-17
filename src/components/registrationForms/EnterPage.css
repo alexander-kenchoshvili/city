@@ -1,0 +1,130 @@
+
+.wrapper{
+    padding-top: 80px;
+    min-height: calc(100vh - 128px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.enter-frame{
+    width: 384px;
+    margin: auto;
+}
+.enter-header{
+    display: flex;
+    justify-content: center;
+    color: #101223;
+    font-family: caps;
+    font-size: 36px;
+}
+.enter-inputs{
+    padding-top: 24px;
+}
+.mail-to-enter input,
+.password input{
+    margin-top: 6px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #D2D4DA;
+    border-radius: 5px;
+    padding: 11px 12px;
+}
+.mail-to-enter input::placeholder,
+.password input::placeholder{
+    color: #9496A1;
+    font-size: 14px;
+    font-family: medium;
+}
+.mail-to-enter label,
+.password label{
+    color: #101223;
+    font-size: 14px;
+    font-family: medium;
+    margin-left: 12px;
+}
+.password{
+    margin-top: 24px;
+}
+.lost-password{
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: #D02F27;
+    font-size: 14px;
+    font-family: 'medium';
+    transition: all 0.5s;
+}
+.lost-password:hover{
+    color: #D02F27;
+    font-weight: bold;
+}
+.enter-btn{
+    background: #D02F27;
+    width: 100%;
+    color: white;
+    margin-top: 24px;
+    outline: none;
+    border: 1px solid #D02F27;
+    border-radius: 5px;
+    font-family: 'caps';
+    font-size: 18px;
+    padding: 10px;
+    transition:0.5s;
+}
+.enter-btn:hover{
+    background-color: transparent;
+    color: #D02F27;
+}
+.enter-with-social{
+    padding-top: 48px;
+    position: relative;
+}
+.enter-with-social::before{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #D2D4DA;
+    position: absolute;
+    top: 24px;
+}
+.google-btn,
+.fb-btn{
+    width: 100%;
+    border: 1px solid #D2D4DA;
+    color: #101223;
+    font-family: 'medium';
+    font-size: 14px;
+    outline: none;
+    padding: 11px;
+    background-color: white;
+    border-radius: 5px;
+}
+.google-btn svg,
+.fb-btn svg{
+    margin-right: 12px;
+}
+.fb-btn{
+    margin-top: 24px;
+}
+.register-link{
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    color: #101223;
+    font-size: 14px;
+    font-family: 'medium';
+}
+.register-link >a{
+    color: #D02F27;
+    font-size: 14px;
+    font-family: medium;
+    margin-left: 12px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.register-link >a:hover{
+    color: #D02F27;
+    font-weight: bold;
+}

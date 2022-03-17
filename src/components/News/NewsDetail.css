@@ -1,0 +1,31 @@
+.detail-news-section{
+    padding-top: 80px;
+}
+.detail-news-header{
+    padding-top: 96px;
+}
+.detail-news-header >h2{
+    color: #101223;
+    font-family: 'caps';
+    font-size: 36px;
+    margin: 0;
+}
+.detail-news-header span{
+    color: #D02F27;
+    font-family: 'caps';
+    font-size: 20px;
+}
+.detail-news-poster{
+    margin-top: 6px;
+}
+.detail-news-poster img{
+    width: 100%;
+    object-fit: cover;
+}
+.detail-news-text{
+    margin-top: 24px;
+}
+.detail-news-text >p{
+    color: #101223;
+    font-size: 16px;
+}

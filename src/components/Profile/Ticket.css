@@ -1,0 +1,35 @@
+.ticket-section{
+    padding-top: 80px;
+    width: 100%;
+}
+.ticket-items{
+    margin-top: 48px;
+    padding: 24px 24px 12px 24px;
+    background-color: white;
+    margin-left: 24px;
+}
+.ticket-content{
+    display: flex;
+    margin-bottom: 24px;
+}
+.ticket-info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 24px 24px 0px 24px;
+    background-color: #F3F4F8;
+}
+.ticket-caption >h2{
+    color: #101223;
+    font-size: 20px;
+    font-family: caps;
+}
+.ticket-caption >h3{
+    font-size: 14px;
+    font-family: medium;
+}
+.ticket-caption span{
+    color: #D02F27;
+    font-size: 14px;
+    font-family: medium;
+}

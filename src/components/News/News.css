@@ -1,0 +1,138 @@
+.news-section{
+    padding-top: 80px;
+}
+.news-header{
+    padding-top: 48px;
+    display: flex;
+    justify-content: center;
+    color: #101223;
+    font-family: caps;
+    font-size: 36px;
+}
+.news-slider{
+    border: 1px solid #D2D4DA;
+    margin-top: 48px;
+}
+.poster{
+    display: flex;
+    justify-content: space-between;
+}
+.poster .date{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.poster-day{
+    font-size: 14px;
+    font-family: medium;
+    color: #282A3A;
+    margin: 0;
+}
+.poster-number{
+    color: #D02F27;
+    font-family: caps;
+    font-size: 30px;
+    margin-top: -5px;
+}
+.poster-month{
+    color: #D02F27;
+    font-size: 14px;
+    font-family: medium;
+    margin-top: -8px;
+}
+.poster-time{
+    color: #101223;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 9px;
+}
+.poster .date::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #707070;
+    top: 0;
+    right: -31px;
+}
+.poster-left{
+    display: flex;
+    padding: 24px;
+}
+.poster-header{
+    display: flex;
+    flex-direction: column;
+    margin-left: 55px;
+
+}
+.poster-header >h2{
+    color: #D02F27;
+    font-size: 36px;
+    font-family: caps;
+    margin: 0;
+}
+.director{
+    color: #404252;
+    font-size: 16px;
+}
+.director-name{
+    font-size: 16px;
+    font-family: medium;
+    color: #101223;
+}
+.slick-slide div >a{
+    text-decoration: none;
+    color: transparent;
+}
+.slick-dots li button:before{
+    content: '';
+    background-color: #9496A1;
+    width: 30px;
+    height: 5px;
+}
+.slick-dots {
+    bottom: -45px;
+}
+.slick-dots li {
+    margin: 0px 10px;
+}
+.slick-dots li.slick-active button:before{
+    opacity: 1;
+    background-color: #D02F27;
+}
+.news{
+    padding-top: 72px;
+    display: flex;
+    justify-content: center;
+    color: #101223;
+    font-size: 36px;
+    font-family: caps;
+}
+.news-cards{
+    padding-top: 48px;
+}
+.news-card-frame >a{
+    text-decoration: none;
+}
+.news-caption{
+    margin-top: 12px;
+}
+.news-caption >h2{
+    color: #101223;
+    font-size: 24px;
+    font-family: caps;
+    margin-bottom: 0px;
+}
+.news-caption span{
+    color: #D02F27;
+    font-size: 14px;
+    font-family: medium;
+}
+.news-caption >p{
+    margin-top: 12px;
+    color: #5B5D6B;
+    font-size: 14px;
+    font-family: medium;
+}

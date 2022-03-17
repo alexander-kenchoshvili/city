@@ -1,0 +1,7 @@
+.profile-items{
+    display: flex;
+    justify-content: space-between;
+}
+.side-wrap{
+    min-height: calc(100vh - 128px);
+}

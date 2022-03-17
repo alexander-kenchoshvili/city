@@ -1,0 +1,88 @@
+.main-page-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+}
+.main-page-items ul{
+    display: flex;
+    list-style: none;
+}
+.main-page-items li{
+    padding-right: 36px;
+}
+.main-page-items .nav-links{
+    text-decoration: none;
+    color: #101223;
+    font-size: 20px;
+    font-family: caps;
+    position: relative;
+}
+.main-page-items .nav-links:hover::after{
+    width: 100%;
+}
+.main-page-items .nav-links::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 3px;
+    width: 0%;
+    background: #D02F27;
+    transition: all 0.3s;
+}
+.enter-donation{
+    display: flex;
+}
+.donation{
+    padding: 13px;
+    background-color: #27D06B;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-family: caps;
+    margin-right: 24px;
+    text-decoration: none;
+    border: 1px solid #27D06B;
+    transition: all 0.5s;
+    height: 48px;
+}
+.donation svg,
+.enter svg{
+    margin-right: 8px;
+}
+.donation:hover{
+    background-color: transparent;
+    color: #27D06B;
+}
+.donation:hover path{
+    stroke: #27D06B;
+}
+
+.enter{
+    padding: 13px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-family: caps;
+    background-color: #D02F27;
+    text-decoration: none;
+    border: 1px solid #D02F27;
+    transition: all 0.5s;
+    height: 48px;
+}
+.enter:hover{
+    background-color: transparent;
+    color: #D02F27;
+}
+.enter:hover path{
+    stroke: #D02F27;
+}

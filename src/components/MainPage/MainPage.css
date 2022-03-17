@@ -1,0 +1,113 @@
+
+.performance-frame{
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    justify-content: center;
+    clip-path: polygon(0 0, 94% 0, 100% 50%, 94% 100%, 0 100%, 125px 50%);
+    
+}
+.arrow-frame:first-child{
+    margin-left: 0;
+}
+
+.arrow-frame{
+    height: 620px;
+    position: relative;
+    flex-shrink: 0;
+    margin-right: 25px;
+    margin-left: -131px;
+}
+.arrow-frame img{
+    transition: all .8s;
+    clip-path: polygon(0 0, 170px 0, 295px 50%, 170px 100%, 0 100%, 125px 50%);
+    width: 295px;
+    object-fit: cover;
+    height: 100%;
+    object-position: top;
+    filter: grayscale(1);
+    opacity: 0.6;
+}
+.arrow-frame:hover img{
+    clip-path: polygon(0 0, 930px 0, 1055px 50%, 930px 100%, 0 100%, 125px 50%);
+    width: 1055px;
+    object-position: unset;
+    filter: none;
+}
+.arrow-frame span{
+    position: absolute;
+    right: 0;
+    transform: rotate(292deg);
+    bottom: 95px;
+    color: #F3EEEE;
+    font-size: 18px;
+    font-family: 'regular';
+    z-index: 1;
+}
+
+.devices{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+}
+.voice-language img{
+    margin-right: 20px;
+}
+.see-calendar >a{
+    text-decoration: none;
+    padding: 13px 24px;
+    background-color: #D02F27;
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: 1px solid #D02F27;
+    transition: 0.5s;
+}
+.see-calendar >a:hover{
+    color: #D02F27;
+    background-color: transparent;
+}
+.see-calendar >a:hover path{
+    stroke: #D02F27;;
+}
+.see-calendar >a svg{
+    margin-right: 13px;
+}
+
+.social-network span{
+    font-size: 16px;
+    color: #404252;
+    margin-right: 22px;
+    cursor: default;
+    transition: 0.5s;
+}
+.social-network span:hover{
+    color: #D02F27;
+    font-weight: bold;
+}
+.social-arrow{
+    margin-right: 20px;
+}
+.social-network >a{
+    margin-right: 20px;
+}
+.social-network a> svg{
+    transition: 0.5s;
+}
+.social-network >a svg:hover{
+    transform: scale(1.2)
+}
+
+.insta-logo path,
+.fb-logo path{
+    transition: 0.5s;
+}
+.fb-logo:hover path{
+    fill: #2AA4F4;
+}
+.insta-logo:hover path{
+    fill: #833ab4;
+}
+
