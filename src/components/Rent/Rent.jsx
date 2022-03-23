@@ -2,9 +2,29 @@ import React from 'react';
 import './Rent.css';
 import RentPhoto from '../../assets/images/rentphoto.png';
 import Message from '../../componentLogos/Message';
-import Footer from '../Footer/Footer';
+import Slider from 'react-slick';
+
+
 
 function Rent() {
+    const settings = {
+        customPaging: function(i) {
+          return (
+            <a>
+              <img src={`${RentPhoto}`} />
+            </a>
+          );
+        },
+        dots: true,
+        dotsClass: "slick-dots slick-thumb",
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      };
+
+
+
   return (
     <div className='rent-section'>
         <div className='inner-container'>
@@ -13,7 +33,26 @@ function Rent() {
                     იქირავე ჩვენი დარბაზი
                 </div>
                 <div className='rent-img'>
-                    <img src={RentPhoto} alt="rent" />    
+                    <Slider {...settings}>
+                        <div>
+                            <img src={RentPhoto } />
+                        </div>
+                        <div>
+                            <img src={RentPhoto} />
+                        </div>
+                        <div>
+                            <img src={RentPhoto } />
+                        </div>
+                        <div>
+                            <img src={RentPhoto  } />
+                        </div>
+                        <div>
+                            <img src={RentPhoto  } />
+                        </div>
+                        <div>
+                            <img src={RentPhoto } />
+                        </div>
+                    </Slider> 
                 </div>
                 <div className='rent-content'>
                     <div className='rent-address'>

@@ -12,6 +12,8 @@
 .news-slider{
     border: 1px solid #D2D4DA;
     margin-top: 48px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .poster{
     display: flex;

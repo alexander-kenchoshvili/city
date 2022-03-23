@@ -21,6 +21,7 @@ import DonationLayout from './components/donation/DonationLayout';
 import PhisicalPerson from './components/donation/PhisicalPerson';
 import Organisation from './components/donation/Organisation';
 import Performance from './components/performance/Performance';
+import PerformanceLayout from './components/performance/PerformanceLayout';
 
 
 
@@ -45,7 +46,7 @@ function App() {
           <Route path='Registration' element={<Registration/>} />
           <Route path='dashboard' element={<ProfileLayout/>} />
           <Route path='donationPage' element={<DonationLayout/>} />
-          <Route path='performance' element={<Performance/>} />
+          <Route path='performance' element={<PerformanceLayout/>} />
          
   
           <Route path='/dashboard' element={<ProfileLayout/>}>

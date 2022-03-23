@@ -1,40 +1,163 @@
-.performance-section{
-    padding-top: 80px;
+.performance-items{
+    padding-top: 68px;
 }
-.all-performance-btn button,
-.day-performance-btn button{
-    width: 100%;
+.performance-inner {
     background: white;
-    border: none;
+    padding: 24px;
+    margin-bottom: 24px;
     border-radius: 5px;
-    color: #282A3A;
-    font-family: 'medium';
-    font-size: 16px;
-    padding: 12px;
 }
-.performance-list{
-    padding-top: 48px;
-}
-.performance a{
-    text-decoration: none;
-}
-.performance-caption{
-    margin-top: 12px;
-}
-.performance-caption span {
-    color: #D02F27;
-    font-size: 14px;
-    font-family: medium;
-}   
-.performance-caption >h2{
-    color: #101223;
-    font-size: 24px;
+.performance-title{
     font-family: caps;
+    color: #D02F27;
+    font-size: 32px;
     margin: 0;
 }
-.performance-caption >p{
-    color: #5B5D6B;
+.performance-poster{
+    margin-top: 24px;
+}
+.performance-describtion{
+    margin-top: 24px;
+}
+.describtion-title,
+.stuff-title,
+.actors-title{
+    display: flex;
+    align-items: center;
+}
+.describtion-title >h2,
+.stuff-title >h2,
+.actors-title >h2{
+    font-size: 18px;
+    color: #101223;
+    font-family: caps;
+    margin-left: 6px;
+    margin-bottom: 0;
+}
+.performance-describtion >p{
+    color:#101223;
+    font-size: 14px;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+.performance-stuff,
+.performance-actors{
+    margin-top: 48px;
+}
+.stuff-list{
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+.stuff-box >h2{
+    color: #404252;
+    font-family: medium;
+    font-size: 14px;
+    margin: 0;
+}
+.stuff-box >a,
+.actors-box >a{
+    color: #101223;
     font-size: 14px;
     font-family: medium;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.stuff-box >a:hover,
+.actors-box >a:hover{
+    color: #D02F27;
+}
+.actors-list{
     margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+.actors-box{
+    display: flex;
+    flex-direction: column;
+}
+.month-input{
+    position: relative;
+}
+.choose-month svg{
+    position: absolute;
+    right: 12px;
+    top: 45px;
+}
+.month-input input{
+    width: 100%;
+    padding: 10px 0px 10px 12px;
+    outline: none;
+    border: none;
+    border: 1px solid #D2D4DA;
+    border-radius: 5px;
+    margin-top: 6px;
+}
+.month-input input::placeholder{
+    font-family: caps;
+    font-size: 18px;
+    color: #D02F27;
+
+}
+.month-input label{
+    color: #101223;
+    font-size: 16px;
+    font-family: medium;
+}
+.month-input .selected{
+    background: white;
+    position: absolute;
+    width: 100%;
+    top: 77px;
+    left: 0;
+    border-radius: 5px;
+    transition: all 0.5s;
+    z-index: 222;
+    height: 0px;
+    overflow: hidden;
+    overflow-y: scroll;
+    
+}
+.month-input .selected::-webkit-scrollbar{
+    width: 3px;
+}
+.month-input .selected::-webkit-scrollbar-thumb {
+    background-color: #D02F27;
+  }
+.month-input .selected.active{
+    height: 100px;
+}
+.performance-calendar ul{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    list-style: none;
+    color: grey;
+    height: 220px;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+.performance-calendar ul::-webkit-scrollbar{
+    width: 3px;
+}
+.performance-calendar ul::-webkit-scrollbar-thumb{
+    background-color: #D02F27;
+}
+.performance-calendar ul li{
+    cursor: pointer;
+}
+.performance-calendar ul li.active {
+    color: blue;
+    font-weight: bold;
+}
+.performance-calendar ul li.available {
+    color: black;
+    font-weight: bold;
+}
+
+.performance-calendar ul li.availableactive{
+    color: red;
+    font-weight: bold;
 }

@@ -73,3 +73,48 @@
 .rent-conditions{
     padding-top: 24px;
 }
+.rent-img .slick-slider ul li img{
+    width: 100%;
+    object-fit: cover;
+}
+.rent-img .slick-dots li{
+    width: 172px;
+    height: 100px;
+}
+.rent-img .slick-dots{
+    bottom: 24px;
+}
+.rent-img .slick-next{
+    right: 80px;
+    top: 640px;
+    z-index: 2;
+    background: black;
+    border-radius: 100%;
+    opacity: 0.8;
+    width: 40px;
+    height: 40px;
+    transition: all 0.5s;
+}
+.rent-img .slick-prev{
+    z-index: 2;
+    background: black;
+    border-radius: 100%;
+    opacity: 0.8;
+    width: 40px;
+    height: 40px;
+    left: 85px;
+    top: 640px;
+    transition: all 0.5s;
+}
+.rent-img .slick-prev:hover,
+.rent-img .slick-next:hover{
+    outline: none;
+    border: 1px solid white;
+    background: transparent;
+}
+.rent-img .slick-slider .slick-next::before{
+    content: url(../../assets//images/Vector.svg);
+}
+.rent-img .slick-slider .slick-prev::before{
+    content: url(../../assets//images/Vector.svg);
+}

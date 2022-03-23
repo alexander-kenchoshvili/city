@@ -6,7 +6,7 @@ import PosterPhoto from '../../assets/images/accident.png';
 import {Link} from 'react-router-dom';
 import Slider from 'react-slick';
 import newsImg from '../../assets/images/news.png';
-import Footer from '../Footer/Footer';
+
 
 function News() {
 
