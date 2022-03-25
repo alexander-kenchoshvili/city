@@ -1,7 +1,7 @@
 
 import './Performance.css';
 
-import {useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import ArrowDown from '../../componentLogos/ArrowDown';
 import ArrowUp from '../../componentLogos/ArrowUp';
 import {Link} from 'react-router-dom';
@@ -9,7 +9,7 @@ import Message from '../../componentLogos/Message';
 import Stuff from '../../componentLogos/Stuff';
 import Actors from '../../componentLogos/Actors';
 
-function Performance({allMovies,filteredMovies,filters,setFilters,availableDaysByMonths}) {
+function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,availableDaysByMonths}) {
   const [value,setValue] = useState('');
   const ChangeValue = (e)=>setValue(e.target.textContent);
   const removeActive = () => setDropdown(false);
@@ -26,19 +26,31 @@ function Performance({allMovies,filteredMovies,filters,setFilters,availableDaysB
   const handleMonth = ()=>setMonthBtn(!monthBtn);
   const [monthValue,setMonthValue] = useState('');
   const changeMonth = (e)=> setMonthValue(e.target.textContent);
-  const removeMonthActive = ()=>setMonthBtn(false)
+  const removeMonthActive = ()=>setMonthBtn(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const listElementRef = useRef(null);
   
-  function numberClickHandler(index) {
-    if (!availableDaysByMonths[filters.month - 1].includes(index + 1)) {
-        return;
-    }
-    setFilters((latestFilters) => ({
-        ...latestFilters,
-        day: index +1
-    }));
-  
-}
-console.log(filters.day +1)
+  	function numberClickHandler(index) {
+		if (!availableDaysByMonths[filters.month - 1].includes(index + 1)) {
+			return;
+		}
+		setFilters((latestFilters) => ({
+			...latestFilters,
+			day: index +1
+		}));	
+	}	
+
+	function movieSelectHandler(movie, index) {
+		setSelectedMovie(movie.id);
+		listElementRef.current.children[index].scrollIntoView();
+	}
+
+	useEffect(() => {
+		if(filteredMovies.length) {
+			setSelectedMovie(filteredMovies[0].id)
+		}
+	}, [filteredMovies])
+
   return (
     <div className='performance-section'>
         <div className='inner-container'>
@@ -58,7 +70,7 @@ console.log(filters.day +1)
                                       <ul>
                                           {performance.map((element,index)=>{
                                           return(
-                                              <li   key={index}   onClick={ChangeValue}  >{element.name}</li>
+                                              <li   key={index}   onMouseDown={ChangeValue}  >{element.name}</li>
                                           )
                                           })}
                                           
@@ -74,7 +86,7 @@ console.log(filters.day +1)
                                       <ul>
                                           {performance.map((element,index)=>{
                                           return(
-                                              <li   key={index}   onClick={changeSecondValue}  >{element.genre}</li>
+                                              <li   key={index}   onMouseDown={changeSecondValue}  >{element.genre}</li>
                                           )
                                           })}
                                           
@@ -89,7 +101,7 @@ console.log(filters.day +1)
             <div className='performance-container'>
                 <div className='row'>
                   <div className='col-xl-9'>
-                    <div className='performance-list'>
+                    <div className='performance-list' ref={listElementRef}>
                       {filteredMovies.map((movie,index)=>{
                         return (
                         <div key={index}  className='performance-inner'>
@@ -183,7 +195,7 @@ console.log(filters.day +1)
                     <div className='choose-month'>
                         <div onFocus={handleMonth} className='month-input'>
                           <label>აირჩიე თვე</label>
-                          <input type="text" onBlur={removeMonthActive}  className='select' onChange={changeMonth}  value={months[filters.month-1].month} placeholder='იანვარი'/>
+                          <input type="text" onBlur={removeMonthActive}  className='select' value={months[filters.month-1].month} readOnly/>
                           {monthBtn? <ArrowUp /> : <ArrowDown /> }
                           <div className={monthBtn? 'selected active': 'selected'}>
                             <ul>
@@ -201,6 +213,20 @@ console.log(filters.day +1)
                         </div>
                       </div> 
                     </div>
+					{
+					filteredMovies.length > 0 &&
+						<div>
+							<ul>
+								{filteredMovies.map((movie, index) => (
+									<li 
+										key={movie.id}
+										className={selectedMovie === movie.id ? 'active' : ''}
+										onClick={e => movieSelectHandler(movie, index)}
+									>{movie.title}</li>
+								))}
+							</ul>
+						</div>
+					}
                     <div className='performance-calendar'>
                       <ul>
                         {
@@ -211,7 +237,7 @@ console.log(filters.day +1)
                             className={
                               [availableDaysByMonths[filters.month -1].includes(index + 1) ? `available`:'', filters.day === index + 1? 'active':''].join("")
                             }
-                            >{index +1}
+                            >{String(index + 1).padStart(2, '0')}
                             </li>
                           ))
                         }
