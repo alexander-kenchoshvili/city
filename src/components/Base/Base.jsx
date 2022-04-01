@@ -44,7 +44,7 @@ export default function Base() {
                               <ul>
                                 {actor.map((element,index)=>{
                                   return(
-                                    <li   key={index}   onClick={ChangeValue}  >{element.list}</li>
+                                    <li   key={index}   onMouseDown={ChangeValue}  >{element.list}</li>
                                   )
                                 })}
                                 

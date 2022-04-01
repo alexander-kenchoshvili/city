@@ -14,7 +14,7 @@
     padding-top: 48px;
 }
 .rent-content{
-    padding-top: 24px;
+    padding-top: 140px;
 }
 .rent-address{
     display: flex;
@@ -76,18 +76,23 @@
 .rent-img .slick-slider ul li img{
     width: 100%;
     object-fit: cover;
+    border-radius: 5px;
 }
 .rent-img .slick-dots li{
-    width: 172px;
-    height: 100px;
+    width: 190px;
+    height: 130px;
+    margin: 0;
 }
 .rent-img .slick-dots{
-    bottom: 24px;
+    bottom: -130px;
+    border-radius: 5px;
+    display: flex!important;
+    justify-content: space-between;
 }
 .rent-img .slick-next{
-    right: 80px;
-    top: 640px;
-    z-index: 2;
+    right: -20px;
+    top: 50%;
+    z-index: 1;
     background: black;
     border-radius: 100%;
     opacity: 0.8;
@@ -96,21 +101,21 @@
     transition: all 0.5s;
 }
 .rent-img .slick-prev{
-    z-index: 2;
+    z-index: 1;
     background: black;
     border-radius: 100%;
     opacity: 0.8;
     width: 40px;
     height: 40px;
-    left: 85px;
-    top: 640px;
+    left: -20px;
+    top: 53%;
     transition: all 0.5s;
 }
 .rent-img .slick-prev:hover,
 .rent-img .slick-next:hover{
     outline: none;
-    border: 1px solid white;
-    background: transparent;
+    background: #27D06B;
+    
 }
 .rent-img .slick-slider .slick-next::before{
     content: url(../../assets//images/Vector.svg);

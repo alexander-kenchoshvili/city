@@ -1,0 +1,62 @@
+.event-detail{
+    padding-top: 80px;
+    min-height: calc(100vh - 128px);
+}
+.event-detail-items{
+    padding-top: 48px;
+}
+.event-detail-frame{
+    background-color: white;
+    padding: 24px;
+    border-radius: 5px;
+}
+.event-detail-img{
+    width: 100%;
+    margin-top: 24px;
+}
+.event-detail-img img{
+    width: 100%;
+    object-fit: cover;
+}
+.event-name{
+    color: #D02F27;
+    font-size: 32px;
+    font-family: caps;
+    margin: 0;
+}
+.event-left{
+    display: flex;
+}
+.event-left .event-duration{
+    margin-left: 48px;
+}
+.ticket{
+    font-size: 20px;;
+}
+.ticket::after{
+    left: 125px;
+    top: 0px;
+}
+.ticket-price{
+    font-size: 20px;
+}
+.event-detail-text{
+    margin-top: 24px;
+}
+.event-detail-title{
+    display: flex;
+    align-items: center;
+}
+.event-detail-title >h3{
+    color: #101223;
+    font-size: 18px;
+    font-family: caps;
+    margin: 0;
+    margin-left: 6px;
+}
+.event-detail-text >p{
+    margin-top: 12px;
+    color: #101223;
+    font-size: 14px;
+    
+}

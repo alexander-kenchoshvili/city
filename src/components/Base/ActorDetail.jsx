@@ -1,5 +1,4 @@
 import React from 'react';
-import './ActorDetail.css';
 import ActorPhoto from '../../assets/images/photo-1568602471122-7832951cc4c5.png';
 import Arrow from '../../assets/images/arrow-right.svg';
 import {Link} from 'react-router-dom';
@@ -11,9 +10,21 @@ import Message from '../../componentLogos/Message';
 import Video from '../../componentLogos/Video';
 import Spectacle from '../../assets/images/spectacle.png';
 import GalleryPhoto from '../../assets/images/galleryphoto.png';
-import Footer from '../Footer/Footer';
+import { SRLWrapper } from "simple-react-lightbox";
+import './ActorDetail.css';
 
 function ActorDetail() {
+  const options = {
+    buttons: {
+      showAutoplayButton: true,
+      showCloseButton: true,
+      showDownloadButton: false,
+      showFullscreenButton: true,
+      showNextButton: true,
+      showPrevButton: true,
+      showThumbnailsButton: false,
+    }
+}
   return (
     <div className='actors-section'>
       <div className='actors-cover'>
@@ -76,27 +87,31 @@ function ActorDetail() {
                   </div>
             </div>
             <div className='my-gallery'>
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
-              <img src={GalleryPhoto} alt="" />
+              <SRLWrapper options={options} >
+                <div className='gallery-wrapper'>
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                  <img src={GalleryPhoto} alt="" />
+                </div>
+              </SRLWrapper>
             </div>          
           </div>
       </div>

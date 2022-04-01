@@ -6,12 +6,15 @@ import './index.css';
 import './assets/fonts/GL-KIROVI-BOLD.TTF';
 import './assets/fonts/helvetica-neue-lt-geo-55-roman.ttf';
 import './assets/fonts/helvetica-neue-lt-geo-65-medium.ttf';
+import SimpleReactLightbox from 'simple-react-lightbox';
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <SimpleReactLightbox>
+      <App />
+    </SimpleReactLightbox>
   </React.StrictMode>,
   document.getElementById('root')
 );

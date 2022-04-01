@@ -15,6 +15,7 @@ function Rent() {
             </a>
           );
         },
+        arrows:false,
         dots: true,
         dotsClass: "slick-dots slick-thumb",
         infinite: true,
@@ -34,6 +35,7 @@ function Rent() {
                 </div>
                 <div className='rent-img'>
                     <Slider {...settings}>
+                        {console.log(RentPhoto)}
                         <div>
                             <img src={RentPhoto } />
                         </div>

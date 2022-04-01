@@ -22,6 +22,8 @@ import PhisicalPerson from './components/donation/PhisicalPerson';
 import Organisation from './components/donation/Organisation';
 import Performance from './components/performance/Performance';
 import PerformanceLayout from './components/performance/PerformanceLayout';
+import EventDetail from './components/Event/EventDetail';
+import Partners from './components/partners/Partners';
 
 
 
@@ -42,11 +44,13 @@ function App() {
           <Route path='about' element={<About/>} />
           <Route path='news' element={<News/>} />
           <Route path='newsDetail' element={<NewsDetail/>} />
+          <Route path='eventDetail' element={<EventDetail/>} />
           <Route path='EnterPage' element={<EnterPage/>}  />
           <Route path='Registration' element={<Registration/>} />
           <Route path='dashboard' element={<ProfileLayout/>} />
           <Route path='donationPage' element={<DonationLayout/>} />
           <Route path='performance' element={<PerformanceLayout/>} />
+          <Route path='partners' element={<Partners/>} />
          
   
           <Route path='/dashboard' element={<ProfileLayout/>}>

@@ -80,7 +80,7 @@ function Event() {
                                         <div key={index} className='col-xl-6'>
                                             <div className='card-item'>
                                                 <h2>{element.name}</h2>
-                                                <Link to='#'>
+                                                <Link to='/eventDetail'>
                                                         <img src={element.image} alt="event" />
                                                 </Link>
                                                 <div className='event-table'>

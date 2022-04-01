@@ -36,33 +36,33 @@
 }
 .donation{
     padding: 13px;
-    background-color: #27D06B;
     outline: none;
     border: none;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    color: white;
+    color: #27D06B;
     font-size: 18px;
     font-family: caps;
     margin-right: 24px;
     text-decoration: none;
-    border: 1px solid #27D06B;
     transition: all 0.5s;
     height: 48px;
+}
+.donation path{
+    stroke: #27D06B;
 }
 .donation svg,
 .enter svg{
     margin-right: 8px;
 }
 .donation:hover{
-    background-color: transparent;
-    color: #27D06B;
+    background-color: #27D06B;
+    color: white;
 }
 .donation:hover path{
-    stroke: #27D06B;
+    stroke: white;
 }
-
 .enter{
     padding: 13px;
     outline: none;
@@ -70,19 +70,20 @@
     border-radius: 5px;
     display: flex;
     align-items: center;
-    color: white;
+    color: #101223;
     font-size: 18px;
     font-family: caps;
-    background-color: #D02F27;
     text-decoration: none;
-    border: 1px solid #D02F27;
     transition: all 0.5s;
     height: 48px;
 }
 .enter:hover{
-    background-color: transparent;
-    color: #D02F27;
+    background-color: #101223;
+    color: white;
+}
+.enter path{
+    stroke: #101223;
 }
 .enter:hover path{
-    stroke: #D02F27;
+    stroke: white;
 }

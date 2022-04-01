@@ -45,8 +45,8 @@
     font-size: 18px;
     font-family: 'regular';
     z-index: 1;
-}
 
+}
 .devices{
     display: flex;
     justify-content: space-between;
@@ -55,6 +55,13 @@
 }
 .voice-language img{
     margin-right: 20px;
+}
+.voice-language {
+    display: flex;
+}
+.language-changer,
+.voice-changer{
+    cursor: pointer;
 }
 .see-calendar >a{
     text-decoration: none;

@@ -45,3 +45,16 @@
     background: #D02F27;
     transition: all 0.3s;
 }
+.secondary-nav .enter{
+   color: white;
+}
+.secondary-nav .enter path{
+    stroke: white;
+}
+.secondary-nav .enter:hover{
+    background-color: white;
+    color: #101223;
+}
+.secondary-nav .enter:hover path{
+    stroke: #101223;
+}
