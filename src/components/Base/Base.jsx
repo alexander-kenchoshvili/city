@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Base.css';
 import ArrowDown from '../../componentLogos/ArrowDown';
 import { useState } from 'react';
 import ArrowUp from '../../componentLogos/ArrowUp';
 import {Link} from 'react-router-dom';
-import actorPhoto1 from '../../assets/images/photo-1508214751196-bcfd4ca60f91.png'
-import Footer from '../Footer/Footer';
+import actorPhoto1 from '../../assets/images/photo-1508214751196-bcfd4ca60f91.png';
 
 
 
@@ -23,6 +22,7 @@ export default function Base() {
   const changeInput = (e)=>setInputValue(e.target.value);
   const [data,setData] = useState(actor);
 
+
   return (
     <div className='base' >
         <div className='inner-container'>
@@ -33,10 +33,10 @@ export default function Base() {
                 <div className='input-frame'>
                     <div className='input-box'>
                       <div className='row'>
-                        <div className='col-xl-6'>
+                        <div className='col-xl-6 col-lg-6 col-md-6'>
                           <input value={inputValue} onChange={changeInput}  type="text" placeholder='სიტყვით ძიება...' />
                         </div>
-                        <div className='col-xl-6'>
+                        <div className='col-xl-6 col-lg-6 col-md-6'>
                           <div onFocus={handleDropdown}  className='select-field'>
                             <input onBlur={removeActive}  onChange={ChangeValue}  className='select' type="text" placeholder='პროფესია' value={value} />                        
                             {dropdown? <ArrowUp /> : <ArrowDown /> }
@@ -57,11 +57,15 @@ export default function Base() {
                 </div>
                 <div className='actor-list'>
                     <div className='row'>
+                     
+                    
                       { data.filter(item =>{
                         return item.actorProfession.indexOf(value) !== -1 && item.actorName.indexOf(inputValue) !== -1
                       }).map((element,i)=>{
                         return(
-                            <div key={i}  className='col-xl-3'>
+                         
+                            
+                            <div key={i}  className='col-xl-3 col-lg-4 col-md-6 col-sm-12'>
                               <div className='actors'>
                                 <Link className='actor-photo'  to='/ActorDetail'>
                                   <img src={element.actorPhoto} alt="actor" />
@@ -70,8 +74,11 @@ export default function Base() {
                                 </Link>
                               </div>
                             </div>
+                      
+                         
                         );
                       })}
+                 
                     </div>
                   </div>
               </form>

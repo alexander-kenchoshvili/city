@@ -30,7 +30,9 @@ function ActorDetail() {
       <div className='actors-cover'>
         <div className='actor-header'>
               <div className='actor-head'>
-                <img src={ActorPhoto} alt="actor" /> 
+                <div className='actor-img'>
+                  <img src={ActorPhoto} alt="actor" /> 
+                </div>
                 <div className='actor-header-info'>
                   <div className='actor-info'>
                     <h2>დავით გიორგობიანი</h2>
@@ -72,7 +74,7 @@ function ActorDetail() {
                   <div className='row'>
                     {actors.map((item,index)=>{
                       return (
-                        <div key={index} className='col-xl-3'>
+                        <div key={index} className='col-xl-3 col-lg-4 col-md-6 col-sm-12'>
                           <div className='performances'>
                             <Link to='#'>
                               <img src={item.performanacePhoto} alt="" />  

@@ -12,7 +12,7 @@ function EventDetail() {
                 <div className="row">
                     {events.map((element,index)=>{
                         return (
-                            <div className="col-xl-12">
+                            <div key={index}  className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div className="event-detail-frame">
                                 <h2 className='event-name' >ივენთის დასახელება</h2>
                                 <div className='event-detail-img'>

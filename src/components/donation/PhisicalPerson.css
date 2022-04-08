@@ -54,7 +54,10 @@
     padding: 11px;
 }
 .donors{
-    padding-top: 96px;
+    padding-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .donor-header{
     display: flex;
@@ -67,17 +70,17 @@
     margin-top: 24px;
     background-color: white;
     border-radius: 5px;
+    width: 384px;
     
 }
 .donor-title{
     display: flex;
     justify-content: space-between;
-    padding: 15px 133px 15px 24px;
+    padding: 15px 24px 15px 24px;
     border-bottom: 1px solid #D02F27;
-  
 }
-.right-title{
-    display: flex;
+.donor-title .right-title .donor-date{
+    margin-right: 30px;
 }
 .donor-title >h2,
 .donor-date,
@@ -93,7 +96,7 @@
 .donor-members{
     display: flex;
     justify-content: space-between;
-    padding: 12px 133px 12px 24px;
+    padding: 12px 24px 12px 24px;
     border-bottom: 1px solid rgb(235, 230, 230);
 }
 .donor-name{
@@ -118,4 +121,38 @@
 }
 .donor-members:last-child{
     border:none;
+}
+@media(max-width:430px){
+    .person-inputs{
+        width: unset;
+        padding: 24px;
+    }
+    .donor-list{
+        width:300px;
+    }
+    .person-input label,
+    .person-input input::placeholder,
+    .credit-cards >h4{
+        font-size: 12px;
+    }
+    .transfer-btn button{
+        font-size: 16px;
+    }
+    .donor-header{
+        font-size: 30px;
+    }
+    .donor-name,
+    .donor-date-info{
+        font-size: 12px;
+    }
+}
+@media(max-width:330px){
+    .donation-list{
+        font-size: 16px;
+    }
+}
+@media(min-width:430px){
+    .donor-list{
+        width: 384px;
+    }
 }

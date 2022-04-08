@@ -15,15 +15,16 @@ function Rent() {
             </a>
           );
         },
-        arrows:false,
+        arrows: false,
         dots: true,
         dotsClass: "slick-dots slick-thumb",
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
       };
 
+   
 
 
   return (
@@ -35,7 +36,6 @@ function Rent() {
                 </div>
                 <div className='rent-img'>
                     <Slider {...settings}>
-                        {console.log(RentPhoto)}
                         <div>
                             <img src={RentPhoto } />
                         </div>

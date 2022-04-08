@@ -1,0 +1,12 @@
+.ticket-buy{
+    min-height: calc(100vh - 128px);
+    padding-top: 80px;
+}
+.buy-ticket-header {
+    display: flex;
+    justify-content: center;
+    padding-top: 48px;
+    font-size: 36px;
+    color: #101223;
+    font-family: caps;
+}

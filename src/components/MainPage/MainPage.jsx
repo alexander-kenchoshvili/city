@@ -25,38 +25,66 @@ function MainPage() {
                 <div className='performance-frame'>
                 <div className='arrow-frame'>
                     <img src={marj}  alt="marjanishvili"/>
-                    <span>დანაშაული და სასჯელი</span>
-                    
+                    <div className='more-info'>
+                        <h2>ცუდი ბიჭები</h2>
+                        <span>რეჟისორი - გიორგი გიორგანაშვილი</span>
+                        <span className='spectacle-date'>01.02.2022</span>
+                        <a href="#">მეტის ნახვა</a>
+                    </div>
                 </div>
                 <div className='arrow-frame'>
                     <img src={teamPhoto} alt="team" />
-                    <span>დანაშაული და სასჯელი</span>
-                
+                    <div className='more-info'>
+                        <h2>ცუდი ბიჭები</h2>
+                        <span>რეჟისორი - გიორგი გიორგანაშვილი</span>
+                        <span className='spectacle-date'>01.02.2022</span>
+                        <a href="#">მეტის ნახვა</a>
+                    </div>
                 </div>
                 <div className='arrow-frame'>
                     <img src={teamPhoto} alt="team" />
-                    <span>დანაშაული და სასჯელი</span>
-                
+                    <div className='more-info'>
+                        <h2>ცუდი ბიჭები</h2>
+                        <span>რეჟისორი - გიორგი გიორგანაშვილი</span>
+                        <span className='spectacle-date'>01.02.2022</span>
+                        <a href="#">მეტის ნახვა</a>
+                    </div>
                 </div>
                 <div className='arrow-frame'>
                     <img src={teamPhoto} alt="team" />
-                    <span>დანაშაული და სასჯელი</span>
-                
+                    <div className='more-info'>
+                        <h2>ცუდი ბიჭები</h2>
+                        <span>რეჟისორი - გიორგი გიორგანაშვილი</span>
+                        <span className='spectacle-date'>01.02.2022</span>
+                        <a href="#">მეტის ნახვა</a>
+                    </div>
                 </div>
                 <div className='arrow-frame'>
                     <img src={teamPhoto} alt="team" />
-                    <span>დანაშაული და სასჯელი</span>
-                
+                    <div className='more-info'>
+                        <h2>ცუდი ბიჭები</h2>
+                        <span>რეჟისორი - გიორგი გიორგანაშვილი</span>
+                        <span className='spectacle-date'>01.02.2022</span>
+                        <a href="#">მეტის ნახვა</a>
+                    </div>
                 </div>
                 <div className='arrow-frame'>
                     <img src={teamPhoto} alt="team" />
-                    <span>დანაშაული და სასჯელი</span>
-                
+                    <div className='more-info'>
+                        <h2>ცუდი ბიჭები</h2>
+                        <span>რეჟისორი - გიორგი გიორგანაშვილი</span>
+                        <span className='spectacle-date'>01.02.2022</span>
+                        <a href="#">მეტის ნახვა</a>
+                    </div>
                 </div>
                 <div className='arrow-frame'>
                     <img src={teamPhoto} alt="team" />
-                    <span>დანაშაული და სასჯელი</span>
-                
+                    <div className='more-info'>
+                        <h2>ცუდი ბიჭები</h2>
+                        <span>რეჟისორი - გიორგი გიორგანაშვილი</span>
+                        <span className='spectacle-date'>01.02.2022</span>
+                        <a href="#">მეტის ნახვა</a>
+                    </div>
                 </div>
             </div>
                 </div>

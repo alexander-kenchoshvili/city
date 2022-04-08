@@ -44,49 +44,42 @@ function PhisicalPerson() {
                         <h2>დონორი</h2>
                         <div className='right-title'> 
                             <h2 className='donor-date' >თარიღი</h2>
-                            <h2 className='donor-money' >თანხა</h2>
                         </div>
                     </div>
                     <div className='donor-members'>
                         <span className='donor-name'>რატი ბერულავა</span>
                         <div className='donor-info'>
                             <span className='donor-date-info' >22.02.2022</span>
-                            <span className='donor-money-info' >75₾</span>
                         </div> 
                     </div>
                     <div className='donor-members'>
                         <span className='donor-name'>რატი ბერულავა</span>
                         <div className='donor-info'>
                             <span className='donor-date-info' >22.02.2022</span>
-                            <span className='donor-money-info' >75₾</span>
                         </div> 
                     </div>
                     <div className='donor-members'>
                         <span className='donor-name'>რატი ბერულავა</span>
                         <div className='donor-info'>
                             <span className='donor-date-info' >22.02.2022</span>
-                            <span className='donor-money-info' >75₾</span>
                         </div> 
                     </div>
                     <div className='donor-members'>
                         <span className='donor-name'>რატი ბერულავა</span>
                         <div className='donor-info'>
                             <span className='donor-date-info' >22.02.2022</span>
-                            <span className='donor-money-info' >75₾</span>
                         </div> 
                     </div>
                     <div className='donor-members'>
                         <span className='donor-name'>რატი ბერულავა</span>
                         <div className='donor-info'>
                             <span className='donor-date-info' >22.02.2022</span>
-                            <span className='donor-money-info' >75₾</span>
                         </div> 
                     </div>
                     <div className='donor-members'>
                         <span className='donor-name'>რატი ბერულავა</span>
                         <div className='donor-info'>
                             <span className='donor-date-info' >22.02.2022</span>
-                            <span className='donor-money-info' >75₾</span>
                         </div> 
                     </div>
                 </div>

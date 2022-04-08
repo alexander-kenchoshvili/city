@@ -4,7 +4,7 @@
     width: 100%;
     top: 0%;
     z-index: 2;
-    padding: 5px 0px;
+    padding: 5px 20px;
     display: flex;
     justify-content: center;
 }
@@ -16,7 +16,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.navigation ul{
+.nav-menu-items{
     display: flex;
     list-style: none;
     margin: 0;
@@ -32,10 +32,10 @@
     font-family: caps;
     position: relative;
 }
-.navigation .nav-links:hover::after{
+.nav-items .nav-links:hover::after{
     width: 100%;
 }
-.navigation .nav-links::after{
+.nav-items .nav-links::after{
     content: '';
     position: absolute;
     left: 0;
@@ -57,4 +57,59 @@
 }
 .secondary-nav .enter:hover path{
     stroke: #101223;
+}
+.responsive-logo{
+    display: none;
+}
+
+@media(max-width:1280px){
+    .secondary-nav{
+        background-image: url(../../assets//images/paper-textured-background.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 68px;
+        background-color: transparent;
+       
+    }
+    .full-screen-logo{
+        display: none;
+    }
+    .responsive-logo{
+        display: block;
+    }
+    .responsive-logo svg{
+        width: 70px;
+        height: 70px;
+    }
+    .secondary-nav .nav-items{
+        flex-direction: row-reverse;
+    }
+  
+    .secondary-nav .nav-menu-items-active{
+        list-style: none;
+    }
+    .secondary-nav .nav-menu-items-active .nav-links{
+        color: #101223;
+    }
+    .secondary-nav .enter{
+        color: #101223;
+    }
+    .secondary-nav .enter path{
+        stroke: #101223;
+    }
+    .secondary-nav .enter:hover {
+        background-color: #101223;;
+        color: white;
+    }
+    .secondary-nav .enter:hover path{
+        stroke: white;
+    }
+}
+
+@media(max-width:768px){
+    .responsive-logo svg{
+        width: 50px;
+        height: 50px;
+    }
 }

@@ -4,9 +4,21 @@
     align-items: center;
     padding-top: 24px;
 }
+nav{
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
 .main-page-items ul{
     display: flex;
+    align-items: center;
     list-style: none;
+    margin-bottom: 0px;
+}
+.main-logo img {
+        width: 100%;
+        height: 100%;
+        
 }
 .main-page-items li{
     padding-right: 36px;
@@ -86,4 +98,86 @@
 }
 .enter:hover path{
     stroke: white;
+}
+.hamburger{
+    display: none;
+}
+.nav-menu-items-active{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start!important;
+    width: 240px;
+    height:80vh;
+    position: absolute;
+    top: 0px;
+    left:-100%;
+    background-color: white;
+    transition: all 0.5s ease;
+    padding-left: 15px;
+}
+.nav-menu-items-active li{
+    margin-top: 20px;
+    margin-left: 14px;
+}
+.nav-menu-items-active .nav-links{
+    font-size: 16px;
+}
+.nav-menu-items-active .enter-donation{
+    display: flex;
+    flex-direction: column;
+}
+@media(max-width:1300px){
+ .main-page-items .nav-links{
+     font-size: 18px;
+ }
+}
+
+
+@media(max-width:1280px){
+    .main-logo img{
+        width: 70px;
+        height: 70px;
+    }
+    .nav-menu-items-active.show{
+        left: 0;
+    }
+    .enter-donation{
+        display: none;
+    }
+    .close-btn{
+        display: block;
+        cursor: pointer;
+    }
+    
+    .nav-menu-items.active .enter-donation{
+        flex-direction: column;
+        margin: 0;
+    }
+    .nav-menu-items-active.show .enter-donation .enter,
+    .nav-menu-items-active.show .enter-donation .donation{
+        font-size: 16px;
+    }
+    .hamburger{
+        display: block;
+        cursor: pointer;
+    }
+    .main-page-items{
+        flex-direction: row-reverse;
+    }
+   
+    .nav-menu-items{
+        display: none!important;
+    }
+   
+}
+@media(max-width:768px){
+    .main-logo img {
+        width: 50px;
+        height: 50px;   
+    }
+}
+@media(max-height:874px){
+    .nav-menu-items-active{
+        height: 63vh;
+    }
 }

@@ -16,7 +16,8 @@ function News() {
         speed:500,
         slidesToShow:1,
         arrows:false,
-        className: 'slides'
+        className: 'slides',
+        
     };
 
   return (
@@ -57,7 +58,7 @@ function News() {
                     <div className='row'>
                         {news.map((item,index)=>{
                             return (
-                                <div key={index}  className='col-xl-4'>
+                                <div key={index}  className='col-xl-4 col-lg-6 col-md-6 col-sm-12'>
                                     <div className='news-card-frame'>
                                         <Link to='/newsdetail'>
                                             <div className='news-image'>

@@ -11,16 +11,57 @@ import Gallery from '../../componentLogos/Gallery'
 import GalleryPhoto1 from '../../assets/images/galleryPic.png';
 import Video from '../../componentLogos/Video';
 import videoTemplate from '../../assets/images/videoTemplate.png';
-import Footer from '../Footer/Footer';
+import { SRLWrapper } from "simple-react-lightbox";
 
 function About() {
     const settings = { 
+        slidesToShow:4,
         infinite:true,
         speed:500,
-        slidesToShow:4,
         arrows:true,
-        className: 'slides'
+        className: 'slides',
+        responsive: [
+            {
+              breakpoint: 1280,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                arrows:false,
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2,
+                arrows:false,
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                arrows:false,
+                slidesToScroll: 1
+              }
+            }
+          ]
+        
     };
+
+    const options = {
+        buttons: {
+          showAutoplayButton: true,
+          showCloseButton: true,
+          showDownloadButton: false,
+          showFullscreenButton: true,
+          showNextButton: true,
+          showPrevButton: true,
+          showThumbnailsButton: false,
+        }
+    }
   return (
     <div className='about-section'>
         <div className='actors-cover'></div>
@@ -66,17 +107,21 @@ function About() {
                  <div className='photo-gallery-header'>
                     <h3> <Gallery/> ფოტო გალერია</h3>    
                 </div>
-                <Slider {...settings}>
-                    {content.map((item,index)=>{
-                        return (
+             
+                    <Slider {...settings}>
+                        {content.map((item,index)=>{
+                            return (
                             <div className='gallery-pics'>
-                                <a href="#">
+                              
+                                <SRLWrapper options={options}>
                                     <img key={index} src={item.gallery} />
-                                </a> 
+                                    </SRLWrapper>
+                                
                             </div>
-                        )
-                    })}    
-                </Slider>
+                            )
+                        })}    
+                    </Slider>
+                
             </div>
             <div className='video-gallery'>
                 <div className='photo-gallery-header'>

@@ -15,7 +15,7 @@
     transform: translate(-36px,-30px);
 }
 .slick-next{
-    transform: rotate(180deg)translate(-36px,26px)
+    transform: rotate(180deg) translate(-36px,26px);
 }
 .slick-next::before{
     content: url(../../assets//images/arrow-leftSlider.svg);
@@ -69,9 +69,23 @@
     color: transparent;
     text-decoration: none;
 }
+
+.board-members,
+.gallery-pics,
+.video-content{
+    padding: 0px 10px;
+}
+.board-members img,
+.gallery-pics img,
+.video-content img{
+    width: 100%;
+}
+
 .board-members >a{
     text-decoration: none;
 }
+
+
 .board-members h4{
     margin-top: 6px;
     font-size: 15px;
@@ -83,4 +97,28 @@
     font-size: 13px;
     font-family: medium;
     margin-top: 7px;
+}
+@media(max-width:1280px){
+    .about-head{
+        font-size: 30px;
+    }
+    .history-theatre >p{
+        font-size: 14px;
+    }
+}
+@media(max-width:768px){
+    .about-head{
+        font-size: 26px;
+    }
+    .history-theatre >p{
+        font-size: 12px;
+    }
+}
+@media(max-width:530px){
+    .about-head{
+        font-size: 18px;
+    }
+    .history-theatre >p{
+        font-size: 10px;
+    }
 }

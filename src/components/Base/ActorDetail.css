@@ -15,6 +15,9 @@
     position: absolute;
     bottom: -120px;
 }
+.actor-img img{
+    width: 100%;
+}
 .actor-head{
     display: flex;
 }
@@ -23,7 +26,7 @@
     justify-content: space-between;
     width: 100%;
     padding-left: 24px;
-    padding-top: 48px;
+    padding-top: 36px;
 }
 .actor-info{
     padding-top: 24px;
@@ -50,6 +53,9 @@
 }
 .actor-header-info .social-network{
     padding-top: 24px;
+}
+.actor-header-info .social-network{
+    position: unset;
 }
 .actor-content{
     padding-top: 120px;
@@ -114,4 +120,142 @@
 }
 .my-gallery img:hover{
     transform: scale(1.2);
+}
+.gallery-wrapper img{
+    width: 100%;
+}
+.SRLElementWrapper .css-1eqfn0t{
+    width: 700px;
+    height: 500px;
+    object-fit:cover;
+    border-radius: 5px;
+}
+@media(max-width:1280px){
+    .gallery-wrapper{
+        grid-template-columns: repeat(7,1fr);
+        grid-gap: 10px;
+    }
+    .actor-header{
+        width: unset;
+    }
+    .actor-header-info{
+        align-items: center;
+    }
+    .actor-info >h2{
+        font-size: 26px;
+    }
+    .actor-info .actor-profession{
+        font-size: 12px;
+    }
+    .actor-info .actor-age{
+        font-size: 12px;
+    }
+    .social-network span{
+        display: none;
+    }
+    .bio-describtion >p {
+        font-size: 14px;
+    }
+    .performances img{
+        width: 100%;
+    }
+}
+@media(max-width:990px){
+    .gallery-wrapper{
+        grid-template-columns: repeat(5,1fr);
+        grid-gap: 10px;
+    }
+    .bio-describtion >p {
+        font-size: 12px;
+    }
+}
+@media(max-width:768px){
+    .gallery-wrapper{
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 5px;
+    }
+    .social-arrow{
+        display: none;
+    }
+    .bio-describtion >p {
+        font-size: 10px;
+    }
+}
+@media(max-width:600px){
+    .actor-head{
+        display: flex;
+        align-items: center;
+    }
+    .actor-info >h2{
+        font-size: 20px;
+    }
+    .actor-info .actor-profession{
+        font-size: 10px;
+    }
+    .actor-info .actor-age{
+        font-size: 10px;
+    }
+ 
+    .actor-header-info{
+        padding:0;
+    }
+    .actor-header{
+       bottom: -150px;
+    }
+    .actor-info{
+        margin-left: 24px;
+    }
+    .actor-content {
+      padding-top: 140px;
+    }
+    .social-network >a{
+        margin-right: 10px;
+    }
+}
+@media(max-width:480px){
+    .actor-header-info{
+        flex-direction: column;
+    }
+    .actor-header-info .social-network {
+        padding-top: 10px;
+    }
+    .actor-info {
+        padding-top: 0px;
+    }
+    .actor-img{
+        margin-left: 24px;
+    }
+}
+@media(max-width:360px){
+    .actor-head{
+        flex-direction: column;
+    }
+    .actor-img{
+        width: 320px;
+        height: 220px;
+    }
+    .actor-img img{
+        width: 300px;
+        height: 220px;
+        object-fit: cover;
+    }
+    .actor-header{
+        bottom: -340px;
+    }
+    .actor-content {
+        padding-top: 340px;
+    }
+    .actor-header-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .actor-info{
+      
+        margin-top: 10px;
+    }
+    .actor-header-info .social-network {
+    padding-top: 10px;
+    margin-left: 24px;
+    }
+    
 }

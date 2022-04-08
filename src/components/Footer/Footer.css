@@ -12,3 +12,9 @@
     font-size: 16px;
     cursor: default;
 }
+@media(max-width:450px){
+    .footer-inner{
+        padding: 10px;
+        font-size: 11px;
+    }
+}

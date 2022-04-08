@@ -128,3 +128,27 @@
     color: #D02F27;
     font-weight: bold;
 }
+@media(max-width:430px){
+    .enter-header{
+        font-size: 22px;
+    }
+    .enter-frame{
+        width: unset;
+        padding: 24px;
+    }
+    .mail-to-enter label{
+        font-size: 12px;
+    }
+    .mail-to-enter input::placeholder,
+    .password input::placeholder{
+    font-size: 12px;
+    }
+    .lost-password,
+    .register-link,
+    .register-link >a{
+        font-size: 10px;
+    }
+    .enter-btn{
+        font-size: 16px;
+    }
+}

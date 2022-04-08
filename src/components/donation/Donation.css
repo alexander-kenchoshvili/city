@@ -56,3 +56,14 @@
     font-size: 14px;
     font-family: medium;
 }
+@media(max-width:430px){
+    .donation-items{
+        width: unset;
+    }
+    .donation-list{
+        font-size: 20px;
+    }
+    .checkbox span{
+        font-size: 12px;
+    }
+}

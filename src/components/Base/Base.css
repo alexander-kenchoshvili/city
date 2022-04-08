@@ -105,6 +105,11 @@
 .selected.active{
     height: 160px;
 }
+.actors img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .actor-photo{
   text-decoration: none;
 }

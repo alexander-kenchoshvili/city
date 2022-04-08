@@ -3,9 +3,7 @@
     min-height: calc(100vh - 128px);
     padding-top: 80px;
 }
-.event-items form{
-    padding-top: 48px;
-}
+
 .card-item >h2{
     color: #D02F27;
     font-size: 32px;
@@ -14,6 +12,8 @@
 }
 .card-item img{
     margin-top: 24px;
+    width: 100%;
+    object-fit: cover;
 }
 .input-frame{
     margin-top: 48px;
@@ -28,20 +28,21 @@
     border: none;
     border-radius: 5px;
     background-color: #D02F27;
-    padding: 15px 24px;
+    padding: 11px 20px;
     text-decoration: none;
  
 }
 .ticket{
     color: white;
-    font-size: 14px;
+    font-size: 17px;
     font-family: caps;
     position: relative;
 }
 .ticket-price{
     color: white;
     font-family: regular;
-    margin-left: 25px;
+    margin-left: 12px;
+    font-size: 17px;
 }
 .ticket::after{
     content: '';
@@ -50,7 +51,7 @@
     height: 24px;
     background-color: #981B15;
     top:-3px;
-    left: 92px;
+    left: 102px;
 }
 .starting-time >h3,
 .event-duration >h3,
@@ -66,4 +67,46 @@
     font-family: caps;
     font-size: 20px;
     color: #101223;
+}
+.event-table-wrapper{
+    display: flex;
+}
+.event-table-wrapper .event-duration,
+.event-table-wrapper .genre{
+    margin-left:24px
+}
+
+@media(max-width:1280px){
+ 
+    .card-item .event-table{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card-item .event-table >a{
+        margin-top: 24px;
+    }
+}
+@media(max-width:768px){
+    
+}
+@media(max-width:360px){
+    .card-item img{
+        margin-top: 12px;
+    }
+    .card-item{
+        padding-bottom: 24px;
+    }
+    .card-item >h2{
+        font-size: 20px;
+    }
+    .event-table-wrapper .starting-time >h3,
+    .event-table-wrapper .event-duration>h3,
+    .event-table-wrapper .genre >h3{
+        font-size: 10px;
+    }
+    .event-table-wrapper .starting-time span,
+    .event-table-wrapper .event-duration span,
+    .event-table-wrapper .genre span{
+        font-size: 16px;
+    }
 }

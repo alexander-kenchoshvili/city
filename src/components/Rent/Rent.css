@@ -73,6 +73,9 @@
 .rent-conditions{
     padding-top: 24px;
 }
+.rent-img .slick-slide img{
+    width: 100%;
+}
 .rent-img .slick-slider ul li img{
     width: 100%;
     object-fit: cover;

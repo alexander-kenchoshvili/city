@@ -24,6 +24,7 @@ import Performance from './components/performance/Performance';
 import PerformanceLayout from './components/performance/PerformanceLayout';
 import EventDetail from './components/Event/EventDetail';
 import Partners from './components/partners/Partners';
+import BuyTicket from './components/buyTicket/BuyTicket';
 
 
 
@@ -51,6 +52,8 @@ function App() {
           <Route path='donationPage' element={<DonationLayout/>} />
           <Route path='performance' element={<PerformanceLayout/>} />
           <Route path='partners' element={<Partners/>} />
+          <Route path='buyTicket' element={<BuyTicket/>}  />
+          
          
   
           <Route path='/dashboard' element={<ProfileLayout/>}>

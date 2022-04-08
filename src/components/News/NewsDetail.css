@@ -2,7 +2,7 @@
     padding-top: 80px;
 }
 .detail-news-header{
-    padding-top: 96px;
+    padding-top: 48px;
 }
 .detail-news-header >h2{
     color: #101223;
@@ -28,4 +28,17 @@
 .detail-news-text >p{
     color: #101223;
     font-size: 16px;
+}
+@media(max-width:720px){
+    .detail-news-header >h2{
+        font-size: 21px;
+    }
+    .detail-news-text >p{
+        font-size: 14px;
+    }
+}
+@media(max-width:430px){
+    .detail-news-header >h2{
+        font-size: 16px;
+    }
 }
