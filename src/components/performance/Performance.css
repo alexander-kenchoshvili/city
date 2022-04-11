@@ -128,7 +128,7 @@
     background-color: #D02F27;
   }
 .month-input .selected.active{
-  height: 100px;
+  height: 70px;
 }
 .performance-calendar ul{
     display: flex;

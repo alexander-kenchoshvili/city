@@ -3,6 +3,7 @@ import Performance from './Performance';
 import PerformancePhoto from '../../assets/images/performance-poster.png';
 import { useLinkClickHandler } from 'react-router-dom';
 
+
 const moviesSample = [
   {
       id: 1,
@@ -21,7 +22,8 @@ const moviesSample = [
           { date: "2022-03-05T20:00:00" },
           { date: "2022-03-17T22:00:00" },
           { date: "2022-03-25T20:00:00" },
-          { date: "2022-04-03T21:00:00" }
+          { date: "2022-04-03T21:00:00" },
+          { date: "2022-04-15T21:00:00" }
       ]
   },
   
@@ -42,7 +44,7 @@ const moviesSample = [
           { date: "2022-03-20T20:00:00" },
           { date: "2022-03-22T18:00:00" },
           { date: "2022-03-25T21:00:00" },
-          { date: "2022-04-02T18:00:00" }
+          { date: "2022-05-02T18:00:00" }
       ]
   },
   {
@@ -82,6 +84,7 @@ const moviesSample = [
         { date: "2022-03-20T20:00:00" },
         { date: "2022-03-22T18:00:00" },
         { date: "2022-03-25T21:00:00" },
+        { date: "2022-04-15T18:00:00" },
         { date: "2022-06-02T18:00:00" }
     ]
 },
@@ -105,9 +108,6 @@ const moviesSample = [
         { date: "2022-05-05T18:00:00" }
     ]
 },
-
-
-
 ];
 
 function getMovies() {
@@ -130,7 +130,7 @@ function PerformanceLayout() {
     const [otherMovies, setOtherMovies] = useState([]);
     const [availableDaysByMonths, setAvailableDaysByMonths] = useState([[],[],[],[],[],[],[],[],[],[],[],[],]);
     const visited = useRef(false);
-    
+
     useEffect(() => {
         getMovies().then((movies) => setAllMovies(movies));
     }, []);
@@ -184,7 +184,11 @@ function PerformanceLayout() {
         allMovies.forEach((movie) => {
             movie.dates.forEach((d) => {
                 let day = Number(d.date.slice(8, 10));
-                let monthArray = daysByMonths[Number(d.date.slice(5, 7)) - 1];
+                let month = Number(d.date.slice(5, 7));
+                if(month === new Date().getMonth() + 1 && day < new Date().getDate()) {
+                    return;
+                }
+                let monthArray = daysByMonths[month - 1];
                 if(monthArray.length === 0 || monthArray[monthArray.length - 1] < day) {
                     monthArray.push(day);
                 } else {

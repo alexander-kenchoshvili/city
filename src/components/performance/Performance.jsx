@@ -12,7 +12,7 @@ import Slider from 'react-slick';
 import poster from '../../assets/images/performance-poster.png';
 
 function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,availableDaysByMonths}) {
-
+  console.log(filters)
   const settings = {
     customPaging: function(i) {
       return (
@@ -201,7 +201,10 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
                           </div>
                           )
                     })}
-                    {otherMovies.map((item,index)=>{
+                    {otherMovies.filter(items =>{
+                      return items.title.indexOf(inputValue) !== -1
+                    }).
+                    map((item,index)=>{
                       return (
                         <div key={index}  className='performance-inner'>
                             <h2 className='performance-title' >{item.title}</h2>
@@ -328,19 +331,26 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
                       <div className='choose-month'>
                           <div onFocus={handleMonth} className='month-input'>
                             <label>აირჩიე თვე</label>
-                            <input type="text" onBlur={removeMonthActive}  className='select' value={months[filters.month-1].month} readOnly/>
+                            <input type="text" onBlur={removeMonthActive}  className='select'   value={months[filters.month-1].month} readOnly/>
+                           
                             {monthBtn? <ArrowUp /> : <ArrowDown /> }
                             <div className={monthBtn? 'selected active': 'selected'}>
                               <ul>
                                 {months.map((item,index)=>{
-                                  return <li key={index} 
-                                  onMouseDown={
-                                    () =>
-                                    setFilters((latestFilters) => ({
-                                        ...latestFilters,
-                                        month: index + 1
-                                    }))
-                                  } >{availableDaysByMonths[index].length !==0  && filters.day  ? item.month:null }</li>
+                                  return index >= new Date().getMonth() && 
+                                    availableDaysByMonths[index].length > 0 && 
+                                    (index !== new Date().getMonth() || availableDaysByMonths[index][availableDaysByMonths[index].length - 1] >= new Date().getDate())  ?  
+                                    <li key={index} 
+                                      onMouseDown={
+                                        () =>
+                                        setFilters((latestFilters) => ({
+                                            ...latestFilters,
+                                            month: index + 1
+                                        }))
+                                      }
+                                    >
+                                      {item.month}
+                                    </li> : null
                                 })}
                               </ul>
                           </div>

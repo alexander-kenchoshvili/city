@@ -101,19 +101,23 @@ nav{
 }
 .hamburger{
     display: none;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 50;
 }
 .nav-menu-items-active{
     display: flex;
     flex-direction: column;
     align-items: flex-start!important;
     width: 240px;
-    height:80vh;
+    height:60vh;
     position: absolute;
     top: 0px;
-    left:-100%;
+    left:0;
     background-color: white;
-    transition: all 0.5s ease;
     padding-left: 15px;
+    z-index: 23232;
 }
 .nav-menu-items-active li{
     margin-top: 20px;
@@ -125,6 +129,17 @@ nav{
 .nav-menu-items-active .enter-donation{
     display: flex;
     flex-direction: column;
+}
+.responsive-menu{
+    position: absolute;
+    top:0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    transition: all 0.5s ease;
+}
+.responsive-menu.active{
+    left: 0;
 }
 @media(max-width:1300px){
  .main-page-items .nav-links{
@@ -138,9 +153,6 @@ nav{
         width: 70px;
         height: 70px;
     }
-    .nav-menu-items-active.show{
-        left: 0;
-    }
     .enter-donation{
         display: none;
     }
@@ -149,12 +161,12 @@ nav{
         cursor: pointer;
     }
     
-    .nav-menu-items.active .enter-donation{
+    .responsive-menu .enter-donation{
         flex-direction: column;
-        margin: 0;
+        margin-top: 24px;
     }
-    .nav-menu-items-active.show .enter-donation .enter,
-    .nav-menu-items-active.show .enter-donation .donation{
+    .responsive-menu .enter,
+    .responsive-menu  .donation{
         font-size: 16px;
     }
     .hamburger{
@@ -178,6 +190,6 @@ nav{
 }
 @media(max-height:874px){
     .nav-menu-items-active{
-        height: 63vh;
+        height: 70vh;
     }
 }

@@ -40,7 +40,8 @@ function SecondaryNav() {
                     <Link to='donationPage' className='donation'> <DonationCard/>  დონაცია</Link>
                     <Link to='EnterPage' className='enter' > <ProfileLogo/> შესვლა</Link>
                 </div>
-                <ul className={sidebar?'nav-menu-items-active show' :'nav-menu-items-active' } >
+                <div onClick={removeActive} className={sidebar? 'responsive-menu active':'responsive-menu' }>
+                <ul className='nav-menu-items-active'>
                     <li onClick={removeActive}  className='close-btn'>
                         <img src={closeBtn} alt="close" />
                     </li>
@@ -51,11 +52,12 @@ function SecondaryNav() {
                         </li>
                         )
                     })}
-                     <div onClick={removeActive}   className='enter-donation'>
+                     <div onClick={removeActive}  className='enter-donation'>
                         <Link to='donationPage' className='donation'> <DonationCard/>  დონაცია</Link>
                         <Link to='EnterPage' className='enter' > <ProfileLogo/> შესვლა</Link>
                     </div>
                 </ul>
+                </div>
             </div>
         </div>
     </div>

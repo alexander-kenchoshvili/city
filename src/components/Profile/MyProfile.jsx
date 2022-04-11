@@ -10,15 +10,15 @@ function MyProfile() {
           <input type="text" placeholder='შეიყვანეთ სახელი'  />
         </div>
         <div className='profile-inputs'>
-          <label>სახელი</label>
+          <label>გვარი</label>
           <input type="text" placeholder='შეიყვანეთ გვარი'  />
         </div>
         <div className='profile-inputs'>
-          <label>სახელი</label>
+          <label>ელ ფოსტა</label>
           <input type="mail" placeholder='შეიყვანეთ ელ-ფოსტა'  />
         </div>
         <div className='profile-inputs'>
-          <label>სახელი</label>
+          <label>ნომერი</label>
           <input type="number" placeholder='+995' />
         </div>
         <button className='save-info-btn'>შენახვა</button>

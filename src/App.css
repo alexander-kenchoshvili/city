@@ -7,3 +7,70 @@
   min-height: 100vh;
  
 }
+
+.choose-language {
+  background-image: url(../src/assets/images/paper-textured-background.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 9999;
+  background-color: white;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  display: none;
+}
+.choose-caption{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 24px;
+}
+.choose-caption >h2{
+  font-size: 18px;
+  font-family: medium;
+  margin-bottom: 12px;
+}
+.choose-language-btns{
+  margin-top: 105px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.choose-language-btns span{
+  font-size: 16px;
+  font-family: medium;
+  border: 1px solid #D02F27;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  padding: 5px 33px;
+  cursor: pointer;
+}
+.intro-logo{
+  margin-top: 170px;
+}
+.intro-logo img{
+  width: 100%;
+}
+.choose-language span {
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .choose-language {
+    display: flex
+  }
+}
+@media(max-width:360px){
+  .choose-caption >h2{
+    font-size: 12px;
+  }
+  .choose-language-btns span{
+    font-size: 12px;
+  }
+}

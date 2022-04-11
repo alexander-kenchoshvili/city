@@ -12,28 +12,40 @@ import News from './components/News/News';
 import EnterPage from './components/registrationForms/EnterPage';
 import Registration from './components/registrationForms/Registration';
 import ProfileLayout from './components/Profile/ProfileLayout';
-import Dashboard from './components/Profile/Dashboard';
 import Ticket from './components/Profile/Ticket';
 import MyProfile from './components/Profile/MyProfile';
 import NewsDetail from './components/News/NewsDetail';
-import Donation from './components/donation/Donation';
 import DonationLayout from './components/donation/DonationLayout';
 import PhisicalPerson from './components/donation/PhisicalPerson';
 import Organisation from './components/donation/Organisation';
-import Performance from './components/performance/Performance';
 import PerformanceLayout from './components/performance/PerformanceLayout';
 import EventDetail from './components/Event/EventDetail';
 import Partners from './components/partners/Partners';
 import BuyTicket from './components/buyTicket/BuyTicket';
-
-
-
+import MainLogo from './assets/images/mainLogo.svg';
+import { useState } from 'react';
 
 
 function App() {
+  const [languageIsChosen, setLanguageIsChosen] = useState(false);
 
   return (
     <div className="App">
+      {!languageIsChosen && (
+        <div className="choose-language">
+          <div className='intro-logo'>
+              <img src={MainLogo} alt="main logo" />
+          </div>
+          <div className='choose-caption'>
+            <h2>აირჩიე ენა</h2>
+            <h2>Choose a language</h2>
+          </div>
+          <div className='choose-language-btns'>
+            <span onClick={() => setLanguageIsChosen(true)}>ქართული</span>
+            <span onClick={() => setLanguageIsChosen(true)} >English</span>
+          </div>
+        </div>
+      )}
     <Router>
       <Routes>
         <Route  path='/' element={<Layout />}>

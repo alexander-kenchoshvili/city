@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState, useEffect} from 'react';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import './News.css';
@@ -6,6 +6,7 @@ import PosterPhoto from '../../assets/images/accident.png';
 import {Link} from 'react-router-dom';
 import Slider from 'react-slick';
 import newsImg from '../../assets/images/news.png';
+import axios from 'axios';
 
 
 function News() {
@@ -19,6 +20,20 @@ function News() {
         className: 'slides',
         
     };
+    const [newsPosts, setNewsPosts] = useState([])
+
+    useEffect(()=>{
+        axios.get('http://apicity.cgroup.ge/api/news')
+            .then(res => {
+                console.log(res.data.data)
+                setNewsPosts(res.data.data)
+            
+              
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+    },[])
 
   return (
     <div className='news-section'>
@@ -56,18 +71,18 @@ function News() {
                 <div className='news'>სიახლეები</div>
                 <div className='news-cards'>
                     <div className='row'>
-                        {news.map((item,index)=>{
+                        {newsPosts.map((item)=>{
                             return (
-                                <div key={index}  className='col-xl-4 col-lg-6 col-md-6 col-sm-12'>
+                                <div key={item.id}  className='col-xl-4 col-lg-6 col-md-6 col-sm-12'>
                                     <div className='news-card-frame'>
                                         <Link to='/newsdetail'>
                                             <div className='news-image'>
-                                                <img src={item.newsImg} alt="news" />
+                                                <img src={`http://apicity.cgroup.ge/${item.image}  `} alt="news" />
                                             </div>
                                             <div className='news-caption'>
-                                                <h2>{item.name}</h2>
-                                                <span>{item.date}</span>
-                                                <p>{item.caption}
+                                                <h2>{item.title.ka}</h2>
+                                                <span>{item.created_at}</span>
+                                                <p>{item.description.ka}
                                                 </p>
                                             </div>
                                         </Link>    
