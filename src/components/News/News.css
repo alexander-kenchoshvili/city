@@ -1,5 +1,6 @@
 .news-section{
     padding-top: 80px;
+    min-height: calc(100vh - 128px);
 }
 .news-header{
     padding-top: 48px;

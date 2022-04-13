@@ -1,39 +1,42 @@
-import React from 'react';
+import {useState, useEffect} from 'react';
 import './NewsDetail.css';
-import Detailnews from '../../assets/images/detailnews.png';
+import axios from 'axios';
+import {useParams} from 'react-router-dom';
 
 function NewsDetail() {
-  return (
-    <div className='detail-news-section'>
-        <div className='inner-container'>
-            <div className='detail-news-header'>
-                <h2>შემთხვევით შერჩეული სიახლეების სათაური</h2>
-                <span>01.02.2022</span>
-            </div>
-            <div className='detail-news-poster'>
-                <img src={Detailnews} alt="details" />
-            </div>
-            <div className='detail-news-text'>
-                <p>ილია ჭავჭავაძე (დ. 8 ნოემბერი, 1837, სოფელი ყვარელი — გ. 12 სექტემბერი, 1907, წიწამური) — 
-                    ქართველი საზოგადო მოღვაწე, პუბლიცისტი, ჟურნალისტი, პოლიტიკოსი, მწერალი, რომელმაც
-                    მნიშვნელოვანი როლი შეასრულა მეცხრამეტე საუკუნეში საქართველოში სამოქალაქო საზოგადოების
-                    ჩამოყალიბებაში, გადამწყვეტი წვლილი შეიტანა საქართველოს ეროვნულ-განმათავისუფლებელი
-                    მოძრაობის შექმნასა და ლიბერალური ფასეულობების გავრცელებაში.
-                </p>
-                <p>სათავეში ჩაუდგა თერგდალეულთა თაობას, რომლებმაც ქართულ ინტელექტუალურ სივრცეში მოდერნული,
-                    ევროპული იდეები და ხედვები შემოიტანეს. ილია ჭავჭავაძის თაოსნობით დაარსდა და სრულიად ახალი
-                    სიტყვა თქვა ქართულ ჟურნალისტიკაში მის მიერ გამოცემულმა გაზეთებმა „საქართველოს მოამბემ“ და „ივერიამ“.
-                    მნიშვნელოვანი წვლილი შეიტანა საქართველოში პირველი ფინანსური დაწესებულების - სათავადაზნაურო-საადგილმამულო
-                    ბანკის შექმნაში, რომელსაც 30 წლის განმავლობაში ხელმძღვანელობდა. ბანკის რესურსი უმეტესწილად საქართველოში
-                    სხვადასხვა კულტურულ, საგანმანათლებლო, ეკონომიკურ, საქველმოქმედო პროექტებს ხმარდებოდა. მანვე მნიშვნელოვანი
-                    როლი ითამაშა ქართველთა შორის წერა-კითხვის გამავრცელებელი საზოგადოების ჩამოყალიბებასა და ფუნქციონირებაში.
-                    მისი თაოსნობით გაიხსნა არაერთი სკოლა, სადაც სწავლება ქართულ ენაზე მიმდინარეობდა, რამაც საქართველოში
-                    რუსიფიკაციის პროცესი შეაჩერა.
-                </p>
-            </div>
-        </div>
-    </div>
-  )
+    const {id} = useParams();
+    const [newsPosts, setNewsPosts] = useState(null)
+    useEffect(()=>{
+		axios.get('http://apicity.cgroup.ge/api/news/'+ id)
+		.then(res => {
+			setNewsPosts(res.data.data)
+		})
+		.catch(err =>{
+			console.log(err)
+		})
+	}, [id]);
+
+	if(!newsPosts) return <div>Loading ...</div>
+	
+	return (
+		<div className='detail-news-section'>
+			<div className='inner-container'>
+				<div className='detail-news-header'>
+					<h2>{newsPosts.title.en}</h2>
+					<span>{newsPosts.created_date}</span>
+				</div>
+				<div className='detail-news-poster'>
+					<img src={`http://apicity.cgroup.ge/${newsPosts.image}`} alt={newsPosts.title.en} />
+				</div>
+				<div className='detail-news-text'>
+					<p>{newsPosts.description.en}
+					</p>
+					<p>{newsPosts.description.ka}
+					</p>
+				</div>
+			</div>
+		</div>
+	)
 }
 
 export default NewsDetail

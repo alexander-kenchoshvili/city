@@ -12,7 +12,7 @@ import Slider from 'react-slick';
 import poster from '../../assets/images/performance-poster.png';
 
 function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,availableDaysByMonths}) {
-  console.log(filters)
+  
   const settings = {
     customPaging: function(i) {
       return (

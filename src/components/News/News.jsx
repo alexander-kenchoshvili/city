@@ -5,7 +5,6 @@ import './News.css';
 import PosterPhoto from '../../assets/images/accident.png';
 import {Link} from 'react-router-dom';
 import Slider from 'react-slick';
-import newsImg from '../../assets/images/news.png';
 import axios from 'axios';
 
 
@@ -75,13 +74,14 @@ function News() {
                             return (
                                 <div key={item.id}  className='col-xl-4 col-lg-6 col-md-6 col-sm-12'>
                                     <div className='news-card-frame'>
-                                        <Link to='/newsdetail'>
+                                        {console.log(item.id)}
+                                        <Link to={`/newsdetail/${item.id}`}>
                                             <div className='news-image'>
                                                 <img src={`http://apicity.cgroup.ge/${item.image}  `} alt="news" />
                                             </div>
                                             <div className='news-caption'>
-                                                <h2>{item.title.ka}</h2>
-                                                <span>{item.created_at}</span>
+                                                <h2>{item.title.en}</h2>
+                                                <span>{item.created_month}</span>
                                                 <p>{item.description.ka}
                                                 </p>
                                             </div>
@@ -144,60 +144,6 @@ const poster = [
 
     },
 ]
-const news =[
-    {
-        newsImg:newsImg,
-        name:'სიახლის სათაურის ველი',
-        date:'18 თებერვალი',
-        caption:'შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად'
-    },
-    {
-        newsImg:newsImg,
-        name:'სიახლის სათაურის ველი',
-        date:'18 თებერვალი',
-        caption:'შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად'
-    },
-    {
-        newsImg:newsImg,
-        name:'სიახლის სათაურის ველი',
-        date:'18 თებერვალი',
-        caption:'შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად'
-    },
-    {
-        newsImg:newsImg,
-        name:'სიახლის სათაურის ველი',
-        date:'18 თებერვალი',
-        caption:'შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად'
-    },
-    {
-        newsImg:newsImg,
-        name:'სიახლის სათაურის ველი',
-        date:'18 თებერვალი',
-        caption:'შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად'
-    },
-    {
-        newsImg:newsImg,
-        name:'სიახლის სათაურის ველი',
-        date:'18 თებერვალი',
-        caption:'შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად'
-    },
-    {
-        newsImg:newsImg,
-        name:'სიახლის სათაურის ველი',
-        date:'18 თებერვალი',
-        caption:'შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად'
-    },
-    {
-        newsImg:newsImg,
-        name:'სიახლის სათაურის ველი',
-        date:'18 თებერვალი',
-        caption:'შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად'
-    },
-    {
-        newsImg:newsImg,
-        name:'სიახლის სათაურის ველი',
-        date:'18 თებერვალი',
-        caption:'შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად'
-    },
-]
+
+
 export default News

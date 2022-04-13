@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Base.css';
 import ArrowDown from '../../componentLogos/ArrowDown';
-import { useState } from 'react';
 import ArrowUp from '../../componentLogos/ArrowUp';
 import {Link} from 'react-router-dom';
 import actorPhoto1 from '../../assets/images/photo-1508214751196-bcfd4ca60f91.png';
-
-
+import axios from 'axios';
 
 
 export default function Base() {
@@ -20,7 +18,28 @@ export default function Base() {
   const removeActive = () => setDropdown(false);
   const [inputValue, setInputValue] = useState('');
   const changeInput = (e)=>setInputValue(e.target.value);
-  const [data,setData] = useState(actor);
+  const [member,setMember] = useState([]);
+  const [position, setPosition] =useState([]);
+  
+  useEffect(()=>{
+    axios.get('http://apicity.cgroup.ge/api/team-member')
+        .then(res => {
+            setMember(res.data.data)
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+	},[])
+
+	useEffect(()=>{
+		axios.get('http://apicity.cgroup.ge/api/position')
+			.then(res => {
+				setPosition(res.data.data)
+			})
+			.catch(err =>{
+				console.log(err)
+			})
+	},[])
 
 
   return (
@@ -42,9 +61,9 @@ export default function Base() {
                             {dropdown? <ArrowUp /> : <ArrowDown /> }
                             <div  className={dropdown? 'selected active': 'selected'}  >
                               <ul>
-                                {actor.map((element,index)=>{
+                                {position.map((element,index)=>{
                                   return(
-                                    <li   key={index}   onMouseDown={ChangeValue}  >{element.list}</li>
+                                    <li key={index} onMouseDown={ChangeValue}>{element.title.ka}</li>
                                   )
                                 })}
                                 
@@ -57,28 +76,27 @@ export default function Base() {
                 </div>
                 <div className='actor-list'>
                     <div className='row'>
-                     
-                    
-                      { data.filter(item =>{
-                        return item.actorProfession.indexOf(value) !== -1 && item.actorName.indexOf(inputValue) !== -1
-                      }).map((element,i)=>{
-                        return(
-                         
-                            
-                            <div key={i}  className='col-xl-3 col-lg-4 col-md-6 col-sm-12'>
-                              <div className='actors'>
-                                <Link className='actor-photo'  to='/ActorDetail'>
-                                  <img src={element.actorPhoto} alt="actor" />
-                                  <h2>{element.actorName}</h2>
-                                  <span>{element.actorProfession}</span> 
-                                </Link>
-                              </div>
-                            </div>
-                      
-                         
-                        );
-                      })}
-                 
+						{member.filter(item => {
+							let itemPositions = item.positions.map((posi,index) =>{
+								return posi.title.ka
+							})
+							return (`${item.first_name.ka} ${item.last_name.ka}`).indexOf(inputValue) !== -1 && 
+									(itemPositions.includes(value) || value === '')
+						}).map((element,i)=>{
+							return(
+								<div key={i}  className='col-xl-3 col-lg-4 col-md-6 col-sm-12'>
+								<div className='actors'>
+									<Link className='actor-photo'  to='/ActorDetail'>
+									<img src={`http://apicity.cgroup.ge/${element.profile_photo}`} alt="actor" />
+									<h2>{element.first_name.ka + ' ' + element.last_name.ka}</h2>
+									<span>{element.positions.map((pos,index)=>{
+										return (index ? ', ' : '') + pos.title.ka
+									})}</span> 
+									</Link>
+								</div>
+								</div>
+							);
+						})}                 
                     </div>
                   </div>
               </form>

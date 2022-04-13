@@ -1,7 +1,7 @@
 
 import './App.css';
 import MainPage from './components/MainPage/MainPage';
-import {BrowserRouter as Router, Routes, Route, useLocation}  from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Navigate, useLocation}  from 'react-router-dom';
 import Base from './components/Base/Base';
 import Event from './components/Event/Event';
 import Layout from './components/Navigation/Layout';
@@ -24,6 +24,7 @@ import Partners from './components/partners/Partners';
 import BuyTicket from './components/buyTicket/BuyTicket';
 import MainLogo from './assets/images/mainLogo.svg';
 import { useState } from 'react';
+
 
 
 function App() {
@@ -52,11 +53,11 @@ function App() {
           <Route index element={<MainPage />} />
           <Route path='/base' element={<Base />} />
           <Route path='/event' element={<Event/>} />
-          <Route path='ActorDetail' element={<ActorDetail/>}  />
+          <Route path='ActorDetail/:id' element={<ActorDetail/>}  />
           <Route path='rent' element={<Rent />}/>
           <Route path='about' element={<About/>} />
           <Route path='news' element={<News/>} />
-          <Route path='newsDetail' element={<NewsDetail/>} />
+          <Route path='newsDetail/:id' element={ <NewsDetail/>} />
           <Route path='eventDetail' element={<EventDetail/>} />
           <Route path='EnterPage' element={<EnterPage/>}  />
           <Route path='Registration' element={<Registration/>} />

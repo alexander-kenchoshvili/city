@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import ActorPhoto from '../../assets/images/photo-1568602471122-7832951cc4c5.png';
 import Arrow from '../../assets/images/arrow-right.svg';
 import {Link} from 'react-router-dom';
@@ -12,7 +12,8 @@ import Spectacle from '../../assets/images/spectacle.png';
 import GalleryPhoto from '../../assets/images/galleryphoto.png';
 import { SRLWrapper } from "simple-react-lightbox";
 import './ActorDetail.css';
-
+import axios from 'axios';
+import {useParams} from 'react-router-dom';
 function ActorDetail() {
   const options = {
     buttons: {
@@ -25,33 +26,48 @@ function ActorDetail() {
       showThumbnailsButton: false,
     }
 }
+const {id} = useParams();
+const [member,setMember]=useState(null)
+useEffect(()=>{
+  axios.get('http://apicity.cgroup.ge/api/team-member/' +id)
+      .then(res => {
+          setMember(res.data.data)
+      })
+      .catch(err =>{
+          console.log(err)
+      })
+},[id])
+if(!member) return <div>Loading ...</div>
+console.log(member)
   return (
     <div className='actors-section'>
       <div className='actors-cover'>
         <div className='actor-header'>
               <div className='actor-head'>
                 <div className='actor-img'>
-                  <img src={ActorPhoto} alt="actor" /> 
+                  <img src={`http://apicity.cgroup.ge/${member.profile_photo}`} alt="actor" /> 
                 </div>
                 <div className='actor-header-info'>
                   <div className='actor-info'>
-                    <h2>დავით გიორგობიანი</h2>
-                    <span className='actor-profession'>რეჟისორი, მსახიობი, ქორეოგრაფი</span>
-                    <span className='actor-age'>ასაკი: 28, სქესი: მამრობითი</span>
+                    <h2>{member.first_name.ka + ' ' + member.last_name.ka}</h2>
+                    <span className='actor-profession'>{member.positions.map((item,index)=>{
+                      return (index?", ":'') + item.title.ka
+                    })}</span>
+                    <span className='actor-age'>ასაკი: {member.age}, სქესი: {member.gender ===1? 'მამრობითი':'მდედრობითი' }</span>
                   </div>
                   <div className='social-network'>
                       <span>გამოგვყევით</span>
                       <img className='social-arrow' src={Arrow} alt="arrow" />
-                      <Link className='insta' to='#'> 
+                      <Link className='insta' to={`${member.instagram}`}> 
                         <Insta />
                       </Link>
-                      <Link className='fb' to='#'> 
+                      <Link className='fb' to={`${member.facebook}`}> 
                           <FB />
                       </Link>
-                      <Link className='twitter' to='#'> 
+                      <Link className='twitter' to={`${member.twitter}`}> 
                           <Twitter />
                       </Link>
-                      <Link className='linkedin' to='#'> 
+                      <Link className='linkedin' to={`${member.linked_in}`}> 
                           <LinkedIn />
                       </Link>
                   </div>
@@ -64,9 +80,8 @@ function ActorDetail() {
             <div className='actor-bio' >
               <div className='bio-describtion'>
                 <h2> <Message />  აღწერა</h2>
-                <p>ილია ჭავჭავაძე (დ. 8 ნოემბერი, 1837, სოფელი ყვარელი — გ. 12 სექტემბერი, 1907, წიწამური) — ქართველი საზოგადო მოღვაწე, პუბლიცისტი, ჟურნალისტი, პოლიტიკოსი, მწერალი, რომელმაც მნიშვნელოვანი როლი შეასრულა მეცხრამეტე საუკუნეში საქართველოში სამოქალაქო საზოგადოების ჩამოყალიბებაში, გადამწყვეტი წვლილი შეიტანა საქართველოს ეროვნულ-განმათავისუფლებელი მოძრაობის შექმნასა და ლიბერალური ფასეულობების გავრცელებაში.
-                </p>
-                <p>სათავეში ჩაუდგა თერგდალეულთა თაობას, რომლებმაც ქართულ ინტელექტუალურ სივრცეში მოდერნული, ევროპული იდეები და ხედვები შემოიტანეს. ილია ჭავჭავაძის თაოსნობით დაარსდა და სრულიად ახალი სიტყვა თქვა ქართულ ჟურნალისტიკაში მის მიერ გამოცემულმა გაზეთებმა „საქართველოს მოამბემ“ და „ივერიამ“. მნიშვნელოვანი წვლილი შეიტანა საქართველოში პირველი ფინანსური დაწესებულების - სათავადაზნაურო-საადგილმამულო ბანკის შექმნაში, რომელსაც 30 წლის განმავლობაში ხელმძღვანელობდა. ბანკის რესურსი უმეტესწილად საქართველოში სხვადასხვა კულტურულ, საგანმანათლებლო, ეკონომიკურ, საქველმოქმედო პროექტებს ხმარდებოდა. მანვე მნიშვნელოვანი როლი ითამაშა ქართველთა შორის წერა-კითხვის გამავრცელებელი საზოგადოების ჩამოყალიბებასა და ფუნქციონირებაში. მისი თაოსნობით გაიხსნა არაერთი სკოლა, სადაც სწავლება ქართულ ენაზე მიმდინარეობდა, რამაც საქართველოში რუსიფიკაციის პროცესი შეაჩერა.</p>
+                <p>{member.description.ka}</p>
+                <p>{member.description.ka}</p>
               </div>
             </div>
             <div className='my-performance'>
@@ -85,7 +100,6 @@ function ActorDetail() {
                         </div>
                       )
                     })}
-                 
                   </div>
             </div>
             <div className='my-gallery'>

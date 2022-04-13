@@ -117,6 +117,7 @@ function getMovies() {
       }, );
   });
 }
+
 const initialFilters = {
   month: new Date().getMonth() + 1,
   movieId: null,
@@ -134,6 +135,7 @@ function PerformanceLayout() {
     useEffect(() => {
         getMovies().then((movies) => setAllMovies(movies));
     }, []);
+    console.log(allMovies)
 
     useEffect(() => {
         if (allMovies.length) {
