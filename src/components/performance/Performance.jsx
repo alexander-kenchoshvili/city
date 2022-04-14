@@ -12,7 +12,6 @@ import Slider from 'react-slick';
 import poster from '../../assets/images/performance-poster.png';
 
 function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,availableDaysByMonths}) {
-  
   const settings = {
     customPaging: function(i) {
       return (
@@ -332,7 +331,6 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
                           <div onFocus={handleMonth} className='month-input'>
                             <label>აირჩიე თვე</label>
                             <input type="text" onBlur={removeMonthActive}  className='select'   value={months[filters.month-1].month} readOnly/>
-                           
                             {monthBtn? <ArrowUp /> : <ArrowDown /> }
                             <div className={monthBtn? 'selected active': 'selected'}>
                               <ul>

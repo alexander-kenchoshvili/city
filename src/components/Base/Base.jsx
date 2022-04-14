@@ -86,7 +86,7 @@ export default function Base() {
 							return(
 								<div key={i}  className='col-xl-3 col-lg-4 col-md-6 col-sm-12'>
 								<div className='actors'>
-									<Link className='actor-photo'  to='/ActorDetail'>
+									<Link className='actor-photo'  to={`/ActorDetail/${element.id}`}>
 									<img src={`http://apicity.cgroup.ge/${element.profile_photo}`} alt="actor" />
 									<h2>{element.first_name.ka + ' ' + element.last_name.ka}</h2>
 									<span>{element.positions.map((pos,index)=>{

@@ -28,6 +28,7 @@ function ActorDetail() {
 }
 const {id} = useParams();
 const [member,setMember]=useState(null)
+const [mySpectacle,setSpectacle]=useState(null)
 useEffect(()=>{
   axios.get('http://apicity.cgroup.ge/api/team-member/' +id)
       .then(res => {
@@ -37,8 +38,17 @@ useEffect(()=>{
           console.log(err)
       })
 },[id])
-if(!member) return <div>Loading ...</div>
-console.log(member)
+useEffect(()=>{
+  axios.post('http://apicity.cgroup.ge/api/team-member-spectacle/' +id)
+      .then(res => {
+          setSpectacle(res.data.data)
+      })
+      .catch(err =>{
+          console.log(err)
+      })
+},[id])
+if(!member || !mySpectacle ) return <div>Loading ...</div>
+  const spectacles = Object.values(mySpectacle)
   return (
     <div className='actors-section'>
       <div className='actors-cover'>
@@ -87,14 +97,16 @@ console.log(member)
             <div className='my-performance'>
                   <h2> <Video /> ჩემი სპექტაკლები</h2>
                   <div className='row'>
-                    {actors.map((item,index)=>{
+                    {spectacles.map((item,index)=>{
                       return (
                         <div key={index} className='col-xl-3 col-lg-4 col-md-6 col-sm-12'>
                           <div className='performances'>
                             <Link to='#'>
-                              <img src={item.performanacePhoto} alt="" />  
-                              <h3>{item.name}</h3>
-                              <span>{item.profession}</span>
+                              <img src={`http://apicity.cgroup.ge/${item.images[0]}`} alt="" />  
+                              <h3>{item.title.ka}</h3>
+                              <span>{item.positions.map((pos,i)=>{
+                                return (i?',': '') + pos.title.ka 
+                              })}</span>
                             </Link> 
                           </div>
                         </div>

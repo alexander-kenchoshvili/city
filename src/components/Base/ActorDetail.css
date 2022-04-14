@@ -18,6 +18,13 @@
 .actor-img{
     width: 200px;
 }
+.performances{
+    width: 260px;
+}
+.performances img{
+    width: 100%;
+    object-fit: cover;
+}
 .actor-img img{
     width: 100%;
     height: 100%;

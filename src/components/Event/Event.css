@@ -10,9 +10,11 @@
     font-family: caps;
     margin: 0;
 }
+
 .card-item img{
     margin-top: 24px;
     width: 100%;
+    height: 333px;
     object-fit: cover;
 }
 .input-frame{

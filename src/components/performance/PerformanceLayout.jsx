@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Performance from './Performance';
 import PerformancePhoto from '../../assets/images/performance-poster.png';
 import { useLinkClickHandler } from 'react-router-dom';
+import axios from 'axios';
 
 
 const moviesSample = [
@@ -110,20 +111,21 @@ const moviesSample = [
 },
 ];
 
-function getMovies() {
-  return new Promise((resolve) => {
-      setTimeout(() => {
-          resolve(moviesSample);
-      }, );
-  });
-}
+// function getMovies() {
+//   return new Promise((resolve) => {
+//       setTimeout(() => {
+//           resolve(moviesSample);
+//       }, );
+//   });
+// }
+
 
 const initialFilters = {
   month: new Date().getMonth() + 1,
   movieId: null,
   day: new Date().getDate()
 };
-
+console.log(initialFilters.day)
 function PerformanceLayout() {
     const [filters,setFilters] = useState(initialFilters);
     const [allMovies, setAllMovies] = useState([]);
@@ -132,17 +134,34 @@ function PerformanceLayout() {
     const [availableDaysByMonths, setAvailableDaysByMonths] = useState([[],[],[],[],[],[],[],[],[],[],[],[],]);
     const visited = useRef(false);
 
-    useEffect(() => {
-        getMovies().then((movies) => setAllMovies(movies));
-    }, []);
-    console.log(allMovies)
+    useEffect(()=>{
+        axios.get('http://apicity.cgroup.ge/api/spectacle')
+            .then(res=>{
+                setAllMovies(res.data.data)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+    })
+    // console.log(allMovies)
+    // useEffect(() => {
+    //     getMovies().then((movies) => setAllMovies(movies));
+    // }, []);
+    
 
     useEffect(() => {
         if (allMovies.length) {
             let filtered = allMovies.filter((movie) => {
                 return movie.dates.some((d) => {
+                    console.log(d.start_date.slice(0, 10))
+                    console.log(filters)
+                    console.log( `2022-${
+                        (filters.month < 10 ? "0" : "") +
+                        String(filters.month)
+                    }-${(filters.day < 10 ? "0" : '') + filters.day}`)
+                    // console.log(filters.day + String(filters.day))
                     return (
-                        d.date.slice(0, 10) ===
+                        d.start_date.slice(0, 10) ===
                         `2022-${
                             (filters.month < 10 ? "0" : "") +
                             String(filters.month)
@@ -150,7 +169,7 @@ function PerformanceLayout() {
                     );
                 });
             });
-
+            
             setFilteredMovies(filtered);
         }
     }, [allMovies, filters.day, filters.month]);
@@ -160,10 +179,10 @@ function PerformanceLayout() {
             let other = allMovies.filter((movie) => {
                 return movie.dates.some((d) => {
                     return (
-                        Number(d.date.slice(5, 7)) > filters.month ||
+                        Number(d.start_date.slice(5, 7)) > filters.month ||
                         (
-                            Number(d.date.slice(5, 7)) === filters.month &&
-                            Number(d.date.slice(8, 10)) > filters.day
+                            Number(d.start_date.slice(5, 7)) === filters.month &&
+                            Number(d.start_date.slice(8, 10)) > filters.day
                         )
                     );
                 });
@@ -185,8 +204,8 @@ function PerformanceLayout() {
         }
         allMovies.forEach((movie) => {
             movie.dates.forEach((d) => {
-                let day = Number(d.date.slice(8, 10));
-                let month = Number(d.date.slice(5, 7));
+                let day = Number(d.start_date.slice(8, 10));
+                let month = Number(d.start_date.slice(5, 7));
                 if(month === new Date().getMonth() + 1 && day < new Date().getDate()) {
                     return;
                 }
@@ -240,6 +259,7 @@ function PerformanceLayout() {
         }));
 
     }, [allMovies, availableDaysByMonths, filters.month])
+
 
   return (
     <Performance 
