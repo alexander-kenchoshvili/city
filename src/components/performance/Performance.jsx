@@ -8,27 +8,16 @@ import {Link} from 'react-router-dom';
 import Message from '../../componentLogos/Message';
 import Stuff from '../../componentLogos/Stuff';
 import Actors from '../../componentLogos/Actors';
-import Slider from 'react-slick';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Navigation, Thumbs } from "swiper"
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 import poster from '../../assets/images/performance-poster.png';
 
 function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,availableDaysByMonths}) {
-  const settings = {
-    customPaging: function(i) {
-      return (
-        <a>
-          <img src={`${poster}`} />
-        </a>
-      );
-    },
-    dots: true,
-    arrows:false,
-    slideCount:6,
-    dotsClass: "slick-dots slick-thumb",
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
   const [inputValue, setInputValue] = useState('');
   const changeInput = (e)=>setInputValue(e.target.value);
   const [monthBtn, setMonthBtn] = useState(false);
@@ -36,7 +25,12 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
   const removeMonthActive = ()=>setMonthBtn(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const listElementRef = useRef(null);
-  
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper1, setThumbsSwiper1] =useState(null) 
+  console.log(thumbsSwiper)
+
+  const selectedSwiper = (element,index)=>setThumbsSwiper(thumbsSwiper[index]===element)
+
   	function numberClickHandler(index) {
 		if (!availableDaysByMonths[filters.month - 1].includes(index + 1)) {
 			return;
@@ -55,6 +49,9 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
 			setSelectedMovie(filteredMovies[0].id)
 		}
 	}, [filteredMovies])
+
+  
+
 
   return (
     <div className='performance-section'>
@@ -76,61 +73,81 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
                 <div className='col-xl-9'>
                   <div className='performance-list' ref={listElementRef}>
                     {filteredMovies.filter(item =>{
-                      return item.title.indexOf(inputValue) !== -1
+                      return item.title.ka.indexOf(inputValue) !== -1
                     }).map((movie,index)=>{
                       return (
                           <div key={index}  className='performance-inner'>
                             <div className='row'>
                               <div className='col-xl-12'>
-                              <h2 className='performance-title' >{movie.title}</h2>
+                              <h2 className='performance-title' >{movie.title.ka}</h2>
                             <div className='performance-poster'>
-                              <Slider {...settings}>
-                                <div>
-                                    <img src={poster}/>
-                                </div>
-                                <div>
-                                    <img src={poster}/>
-                                </div>
-                                <div>
-                                    <img src={poster}/>
-                                </div>
-                                <div>
-                                    <img src={poster}/>
-                                </div>
-                                <div>
-                                    <img src={poster}/>
-                                </div>
-                              </Slider> 
+                            <Swiper
+                               style={{
+                                "--swiper-navigation-color": "#fff",
+                                "--swiper-pagination-color": "#fff",
+                              }}
+                              spaceBetween={10}
+                              navigation={false}
+                              thumbs={{ swiper: thumbsSwiper }}
+                              modules={[FreeMode, Navigation, Thumbs]}
+                              className="mySwiper2"
+                            >
+                                {movie.images.map((item,index)=>{
+                                  return (
+                                    <SwiperSlide key={index} >
+                                    <img src={`http://apicity.cgroup.ge/${item}`} />
+                                    </SwiperSlide>
+                                  )
+                                })}
+                            </Swiper>
+                            <Swiper
+                                onSwiper={setThumbsSwiper}
+                                spaceBetween={10}
+                                slidesPerView={movie.images.length}
+                                freeMode={true}
+                                simulateTouch =  {true}
+                                watchSlidesProgress={true}
+                                modules={[FreeMode, Navigation, Thumbs]}
+                                className="mySwiper"
+                              >
+                               {movie.images.map((item,index)=>{
+                                  return (
+                                    <SwiperSlide key={index}  >
+                                    <img  src={`http://apicity.cgroup.ge/${item}`} />
+                                    </SwiperSlide>
+                                  )
+                                })}
+                              </Swiper>
                             </div>
                             <div className='event-table'>
                                     <div className='starting-time'>
-                                        <h3>{movie.startTitle}</h3>
-                                        <span>{movie.startingTime}</span>
+                                        <h3>დაწყების დრო</h3>
+                                        <span>{movie.dates[0].start_hour}</span>
                                     </div>
                                     <div className='event-duration'>
-                                        <h3>{movie.durationTitle}</h3>
-                                        <span>{movie.duration}</span>
+                                        <h3>ხანგრძლივობა</h3>
+                                        <span>{movie.dates[0].minutes} წუთი</span>
                                     </div>
-                                    <div className='genre'>
-                                        <h3>{movie.genreTitle}</h3>
+                                    {/* <div className='genre'>
+                                        <h3>ჟანრი</h3>
                                         <span>{movie.genre}</span>
-                                    </div>
+                                    </div> */}
                                     <Link to='/buyTicket'>
                                         <span className='ticket' >ბილეთის ყიდვა </span>
-                                        <span className='ticket-price'>50₾</span>
+                                        <span className='ticket-price'>{movie.ticket_price}</span>
                                     </Link>
                             </div>
                             <div className='performance-describtion'>
                                 <div className='describtion-title'>
                                     <Message/> 
-                                    <h2>{movie.describtionTitle}</h2>
+                                    <h2>სპექტაკლის შესახებ</h2>
                                 </div>
-                                <p>{movie.describtion}</p>
+                                <p>{movie.description.ka}</p>
                             </div>
                             <div className='performance-stuff'>
                               <div className='stuff-title'>
                                   <Stuff/>
-                                  <h2>{movie.stuffTitle}</h2>
+                                  <h2>სპექტაკლზე მუშაობდნენ</h2>
                               </div>
                               <div className='stuff-list'>
                                 <div className='col-xl-3'>
@@ -201,43 +218,63 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
                           )
                     })}
                     {otherMovies.filter(items =>{
-                      return items.title.indexOf(inputValue) !== -1
+                      return items.title.ka.indexOf(inputValue) !== -1
                     }).
                     map((item,index)=>{
                       return (
                         <div key={index}  className='performance-inner'>
-                            <h2 className='performance-title' >{item.title}</h2>
+                            <h2 className='performance-title' >{item.title.ka}</h2>
                             <div className='performance-poster'>
-                            <Slider {...settings}>
-                                <div>
-                                    <img src={item.poster} />
-                                </div>
-                                <div>
-                                    <img src={item.poster} />
-                                </div>
-                                <div>
-                                    <img src={item.poster } />
-                                </div>
-                                <div>
-                                    <img src={item.poster  } />
-                                </div>
-                                <div>
-                                    <img src={item.poster} />
-                                </div>
-                              </Slider> 
+                            <Swiper
+                            
+                               style={{
+                                "--swiper-navigation-color": "#fff",
+                                "--swiper-pagination-color": "#fff",
+                              }}
+                              spaceBetween={10}
+                              navigation={false}
+                              thumbs={{ swiper: thumbsSwiper1 }}
+                              modules={[FreeMode, Navigation, Thumbs]}
+                              className="mySwiper2"
+                            >
+                                {item.images.map((item,index)=>{
+                                  return (
+                                    <SwiperSlide key={index} >
+                                    <img  src={`http://apicity.cgroup.ge/${item}`} />
+                                    </SwiperSlide>
+                                  )
+                                })}
+                            </Swiper>
+                            <Swiper
+                                onSwiper={setThumbsSwiper1}
+                                spaceBetween={10}
+                                slidesPerView={item.images.length}
+                                freeMode={true}
+                                watchSlidesProgress={true}
+                                modules={[FreeMode, Navigation, Thumbs]}
+                                className="mySwiper"
+                             
+                                
+                              >
+                               {item.images.map((item,index)=>{
+                                  return (
+                                    <SwiperSlide key={index}>
+                                    <img  src={`http://apicity.cgroup.ge/${item}`} />
+                                    </SwiperSlide>
+                                    
+                                  )
+                                })}
+                                
+                              </Swiper>
                             </div>
                             <div className='event-table'>
                                 <div className='starting-time'>
-                                    <h3>{item.startTitle}</h3>
+                                    <h3>დაწყების დრო</h3>
                                     <span>{item.startingTime}</span>
                                 </div>
                                 <div className='event-duration'>
-                                    <h3>{item.durationTitle}</h3>
+                                    <h3>ხანგრძლივობა</h3>
                                     <span>{item.duration}</span>
-                                </div>
-                                <div className='genre'>
-                                    <h3>{item.genreTitle}</h3>
-                                    <span>{item.genre}</span>
                                 </div>
                                 <Link to='#'>
                                     <span className='ticket' >ბილეთის ყიდვა </span>
@@ -247,15 +284,15 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
                             <div className='performance-describtion'>
                                 <div className='describtion-title'>
                                     <Message/> 
-                                    <h2>{item.describtionTitle}</h2>
+                                    <h2>სპეკტაკლის შესახებ</h2>
                                     
                                 </div>
-                                <p>{item.describtion}</p>
+                                <p>{item.description.ka}</p>
                             </div>
                             <div className='performance-stuff'>
                               <div className='stuff-title'>
                                   <Stuff/>
-                                  <h2>{item.stuffTitle}</h2>
+                                  <h2>სპექტაკლზე მუშაობდნენ</h2>
                               </div>
                               <div className='stuff-list'>
                                   <div className='col-xl-3'>
@@ -374,7 +411,7 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
                                             key={movie.id}
                                             className={selectedMovie === movie.id ? 'active' : ''}
                                             onClick={e => movieSelectHandler(movie, index)}
-                                          >{movie.title}
+                                          >{movie.title.ka}
                                           </li>
                                         ))}
                                       </ul>

@@ -125,41 +125,35 @@ const initialFilters = {
   movieId: null,
   day: new Date().getDate()
 };
-console.log(initialFilters.day)
+
 function PerformanceLayout() {
     const [filters,setFilters] = useState(initialFilters);
     const [allMovies, setAllMovies] = useState([]);
     const [filteredMovies, setFilteredMovies] = useState([]);
     const [otherMovies, setOtherMovies] = useState([]);
-    const [availableDaysByMonths, setAvailableDaysByMonths] = useState([[],[],[],[],[],[],[],[],[],[],[],[],]);
+    const [availableDaysByMonths, setAvailableDaysByMonths] = useState([[],[],[],[],[],[],[],[],[],[],[],[]]);
     const visited = useRef(false);
-
+    
+    let isMounted = true;
     useEffect(()=>{
         axios.get('http://apicity.cgroup.ge/api/spectacle')
             .then(res=>{
-                setAllMovies(res.data.data)
+                if(isMounted){
+                    setAllMovies(res.data.data)
+                }
             })
             .catch(err=>{
                 console.log(err)
             })
-    })
-    // console.log(allMovies)
-    // useEffect(() => {
-    //     getMovies().then((movies) => setAllMovies(movies));
-    // }, []);
-    
-
+            return ()=>{
+                isMounted = false;
+            }
+    }, [])
     useEffect(() => {
+       
         if (allMovies.length) {
             let filtered = allMovies.filter((movie) => {
                 return movie.dates.some((d) => {
-                    console.log(d.start_date.slice(0, 10))
-                    console.log(filters)
-                    console.log( `2022-${
-                        (filters.month < 10 ? "0" : "") +
-                        String(filters.month)
-                    }-${(filters.day < 10 ? "0" : '') + filters.day}`)
-                    // console.log(filters.day + String(filters.day))
                     return (
                         d.start_date.slice(0, 10) ===
                         `2022-${
@@ -169,11 +163,12 @@ function PerformanceLayout() {
                     );
                 });
             });
-            
             setFilteredMovies(filtered);
         }
-    }, [allMovies, filters.day, filters.month]);
+    }, [allMovies, filters.day, filters.month])
 
+
+    
     useEffect(() => {
         if (allMovies.length) {
             let other = allMovies.filter((movie) => {
@@ -187,13 +182,10 @@ function PerformanceLayout() {
                     );
                 });
             });
-           
-
             setOtherMovies(other);
         }
     }, [allMovies, filters.day, filters.month]);
-    
-  useEffect(() => {
+    useEffect(() => {
         if(!allMovies.length){
             return;
         }
@@ -203,7 +195,7 @@ function PerformanceLayout() {
             daysByMonths.push([]);
         }
         allMovies.forEach((movie) => {
-            movie.dates.forEach((d) => {
+            movie.dates.forEach((d) => {    
                 let day = Number(d.start_date.slice(8, 10));
                 let month = Number(d.start_date.slice(5, 7));
                 if(month === new Date().getMonth() + 1 && day < new Date().getDate()) {
@@ -217,19 +209,16 @@ function PerformanceLayout() {
                         if(monthArray[i] === day) {
                             break;
                         }
-
                         if(day < monthArray[i]) {
                             monthArray.splice(i, 0, day);
                         }
                     }
                 }
-                
+              
             });
         });
-        
-        setAvailableDaysByMonths(daysByMonths);
+        setAvailableDaysByMonths(daysByMonths);        
     }, [allMovies]);
-    
     useEffect(() => {
         let currentMonth = filters.month;
         if(!visited.current && availableDaysByMonths.some(monthArr => monthArr.length > 0)) {
@@ -240,12 +229,9 @@ function PerformanceLayout() {
                 if (earliestAvailableMonthIndex > -1) {
                     currentMonth = earliestAvailableMonthIndex + 1;
                 }
-                
             }
             visited.current = true;
         }
-
-            
         let earliestAvailableDay = availableDaysByMonths[currentMonth - 1][0] || 1;
         
         if(currentMonth <= new Date().getMonth() + 1) {
@@ -257,10 +243,10 @@ function PerformanceLayout() {
             day: earliestAvailableDay,
             month: currentMonth,
         }));
-
     }, [allMovies, availableDaysByMonths, filters.month])
 
-
+   
+    
   return (
     <Performance 
         allMovies={allMovies} 

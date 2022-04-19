@@ -17,7 +17,6 @@ function Event() {
                 console.log(err)
             })
         },[])
-   console.log(event)
    if(!event) return <div> loading...</div>
 
   return (
@@ -52,6 +51,7 @@ function Event() {
                                                 <div className='event-table-wrapper'>
                                                     <div className='starting-time'>
                                                         <h3>დაწყების დრო</h3>
+                                                        {console.log(element)}
                                                         <span>{element.start_date}</span>
                                                     </div>
                                                     <div className='event-duration'>

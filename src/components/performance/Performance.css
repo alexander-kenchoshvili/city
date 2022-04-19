@@ -208,32 +208,16 @@
 .performance-calendar ul .titles li.active{
     color:#D02F27;
 }
-.performance-poster .slick-dots{
-    bottom: -142px;
+.performance-inner .event-table{
+    margin-top:24px;
+}
+.performance-poster .swiper-slide img{
     width: 100%;
-    display: flex!important;
+}
+.performance-poster .swiper-wrapper{
+    display: flex;
     justify-content: space-between;
 }
-.performance-poster .slick-dots li{
-    width: 160px;
-    height: 140px;
-    margin: 0;
-    border-radius: 5px;
-}
-.performance-poster .slick-dots li img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-}
-.performance-inner .event-table{
-    margin-top:170px;
-}
-.performance-poster .slick-next{
-    right: 30px;
-    top: 590px;
-}
-.performance-poster .slick-prev{
-    left: 30px;
-    top: 590px;
+.performance-poster .mySwiper{
+    margin-top: 10px;
 }
