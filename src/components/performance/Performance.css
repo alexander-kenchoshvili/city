@@ -221,3 +221,17 @@
 .performance-poster .mySwiper{
     margin-top: 10px;
 }
+
+@media(max-width:1200px){
+    .performance-calendar .titles{
+        width: 190px;
+        left: -220px;
+    }
+}
+
+@media(max-width:990px){
+    .performance-calendar .titles{
+        width: 140px;
+        left: -170px;
+    }
+}

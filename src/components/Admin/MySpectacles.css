@@ -1,0 +1,42 @@
+.my-spectacles{
+    margin-left: 24px;
+    padding-top: 80px;
+    width: 100%;
+}
+.my-spectacles-inner{
+    margin-top: 48px;
+}
+.admin-title{
+    font-family: caps;
+    font-size: 20px;
+    cursor: default;
+}
+.add-btn{
+    text-align: right;
+}
+.add-btn a{
+    text-decoration: none;
+    font-family: caps;
+    font-size: 20px;
+    color: #D02F27;
+}
+.add-btn a:hover{
+    color: #D02F27;;
+}
+.admin-list-item{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 12px;
+    border: 1px solid #101223;
+    padding: 5px 12px;
+}
+.item-name{
+    font-family: medium;
+    font-size: 18px;
+}
+.icon-wrap{
+    display: flex;
+}
+.icon-wrap .delete{
+    margin-left:16px
+}

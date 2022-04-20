@@ -26,10 +26,8 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
   const [selectedMovie, setSelectedMovie] = useState(null);
   const listElementRef = useRef(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [thumbsSwiper1, setThumbsSwiper1] =useState(null) 
-  console.log(thumbsSwiper)
-
-  const selectedSwiper = (element,index)=>setThumbsSwiper(thumbsSwiper[index]===element)
+  const [thumbsSwiper1, setThumbsSwiper1] =useState(null)
+ 
 
   	function numberClickHandler(index) {
 		if (!availableDaysByMonths[filters.month - 1].includes(index + 1)) {
@@ -70,11 +68,12 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
             </form>
             <div className='performance-container'>
               <div className='row'>
-                <div className='col-xl-9'>
+                <div className='col-xl-9 col-lg-9 col-md-9 '>
                   <div className='performance-list' ref={listElementRef}>
                     {filteredMovies.filter(item =>{
                       return item.title.ka.indexOf(inputValue) !== -1
                     }).map((movie,index)=>{
+                      
                       return (
                           <div key={index}  className='performance-inner'>
                             <div className='row'>
@@ -86,6 +85,7 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
                                 "--swiper-navigation-color": "#fff",
                                 "--swiper-pagination-color": "#fff",
                               }}
+                              
                               spaceBetween={10}
                               navigation={false}
                               thumbs={{ swiper: thumbsSwiper }}
@@ -221,51 +221,54 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
                       return items.title.ka.indexOf(inputValue) !== -1
                     }).
                     map((item,index)=>{
+                      
                       return (
                         <div key={index}  className='performance-inner'>
                             <h2 className='performance-title' >{item.title.ka}</h2>
                             <div className='performance-poster'>
-                            <Swiper
-                            
-                               style={{
+                                <Swiper
+                                style={{
                                 "--swiper-navigation-color": "#fff",
                                 "--swiper-pagination-color": "#fff",
-                              }}
-                              spaceBetween={10}
-                              navigation={false}
-                              thumbs={{ swiper: thumbsSwiper1 }}
-                              modules={[FreeMode, Navigation, Thumbs]}
-                              className="mySwiper2"
-                            >
+                                }}
+                                spaceBetween={10}
+                                navigation={false}
+                                thumbs={{ swiper: thumbsSwiper1 }}
+                                modules={[FreeMode, Navigation, Thumbs]}
+                                className="mySwiper3"
+                                
+                                >
                                 {item.images.map((item,index)=>{
                                   return (
-                                    <SwiperSlide key={index} >
+                                    <SwiperSlide key={`slide_${index}`} >
                                     <img  src={`http://apicity.cgroup.ge/${item}`} />
                                     </SwiperSlide>
                                   )
                                 })}
-                            </Swiper>
-                            <Swiper
+                                </Swiper>
+                                <Swiper
                                 onSwiper={setThumbsSwiper1}
                                 spaceBetween={10}
                                 slidesPerView={item.images.length}
                                 freeMode={true}
+                                simulateTouch={true}
+                                observeSlideChildren={true}
+                                observer={true}
+                                observeParents={true}
                                 watchSlidesProgress={true}
                                 modules={[FreeMode, Navigation, Thumbs]}
-                                className="mySwiper"
-                             
-                                
-                              >
-                               {item.images.map((item,index)=>{
+                                className="mySwiper4"
+                                >
+                                {item.images.map((item,index)=>{
                                   return (
-                                    <SwiperSlide key={index}>
-                                    <img  src={`http://apicity.cgroup.ge/${item}`} />
+                                    <SwiperSlide key={`slide_${index}`} >
+                                    <img  src={`http://apicity.cgroup.ge/${item}`}/>
                                     </SwiperSlide>
                                     
                                   )
                                 })}
-                                
-                              </Swiper>
+
+                                </Swiper>
                             </div>
                             <div className='event-table'>
                                 <div className='starting-time'>
@@ -362,7 +365,7 @@ function Performance({allMovies,filteredMovies,otherMovies,filters,setFilters,av
                     })}
                   </div>
                 </div>
-                <div className='col-xl-3'>
+                <div className='col-xl-3 col-lg-3 col-md-3 '>
                   <div className='performance-right-wrapper'>
                       <div className='choose-month'>
                           <div onFocus={handleMonth} className='month-input'>

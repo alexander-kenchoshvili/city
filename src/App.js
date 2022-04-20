@@ -24,6 +24,15 @@ import Partners from './components/partners/Partners';
 import BuyTicket from './components/buyTicket/BuyTicket';
 import MainLogo from './assets/images/mainLogo.svg';
 import { useState } from 'react';
+import AdminLayout from './components/Admin/AdminLayout';
+import MySpectacles from './components/Admin/MySpectacles';
+import MyEvents from './components/Admin/MyEvents';
+import AdminNews from './components/Admin/AdminNews';
+import MyTeam from './components/Admin/MyTeam';
+import AdminAbout from './components/Admin/AdminAbout';
+import CreateSpectacle from './components/Admin/CreateSpectacle';
+
+
 
 
 
@@ -48,6 +57,7 @@ function App() {
         </div>
       )}
     <Router>
+      
       <Routes>
         <Route  path='/' element={<Layout />}>
           <Route index element={<MainPage />} />
@@ -77,6 +87,15 @@ function App() {
           <Route path='/donationPage' element={<DonationLayout/>}>
             <Route index element={<PhisicalPerson/>} />
             <Route path='organisation' element={<Organisation/>} />
+          </Route>
+
+          <Route path='/admin' element={<AdminLayout/>}>
+            <Route index element={<MySpectacles/>}  />
+            <Route path='myevents' element={<MyEvents/>} />
+            <Route path='mynews' element={<AdminNews/>} />
+            <Route path='myteam' element={<MyTeam/>} />
+            <Route path='aboutus' element={<AdminAbout/>} />
+            <Route path='create' element={<CreateSpectacle/>} />            
           </Route>
 
 

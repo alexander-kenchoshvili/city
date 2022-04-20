@@ -1,0 +1,35 @@
+.admin-bar{
+    padding-top: 80px;
+    width: 282px;
+}
+.bar-title{
+    font-size: 20px;
+    font-family: caps;
+}
+.admin-content{
+    background-color: white;
+    padding-top: 12px;
+}
+.admin-content span{
+    margin-left: 24px;
+    font-family: caps;
+    font-size: 24px;
+    color: #D02F27;;
+}
+.bar-wrapper{
+    padding: 10px 24px;
+    list-style: none;
+    font-family: caps;
+    font-size: 25px;
+
+}
+
+.bar-wrapper li a{
+    font-family: medium;
+    font-size: 16px;
+    text-decoration: none;
+    color: #101223;
+}
+.admin-content{
+    margin-top: 48px;
+}

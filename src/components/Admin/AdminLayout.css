@@ -1,0 +1,7 @@
+.admin-layout{
+    min-height: calc(100vh - 128px);
+}
+.admin-items{
+    display: flex;
+    justify-content: space-between;
+}
