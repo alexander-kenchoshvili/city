@@ -1,16 +1,27 @@
-import {useRef} from 'react';
+import {useState} from 'react';
 import './CreateSpectacle.css'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Upload from '../../assets/images/upload.svg';
+import ImageUploading from 'react-images-uploading';
  
 
 
 function CreateSpectacle() {
+    
+const [images, setImages] = useState([]);
+const maxNumber = 69;
+const onChange = (imageList, addUpdateIndex) => {
+    // data for submit
+    console.log(imageList, addUpdateIndex);
+    setImages(imageList);
+  };
+const upload = ()=>{
+document.getElementById("selectImage").click()
+}
+
+ 
   
-  const upload = ()=>{
-      document.getElementById("selectImage").click()
-  }
   return (
     <div className='create-spectacle'>
         <div className='create-spectacle-inner'>
@@ -43,9 +54,48 @@ function CreateSpectacle() {
                         </div>
                         <div className='upload-image'>
                             <input type="text" placeholder='ატვირთე სურათი' />
-                            <input type="file" hidden id='selectImage'/>
+                            <input type="file" hidden id='selectImage'   />
                             <div className='uploading' onClick={upload} >
                                 <img src={Upload} alt="upload" />
+                                <ImageUploading
+                                    multiple
+                                    value={images}
+                                    onChange={onChange}
+                                    maxNumber={maxNumber}
+                                    dataURLKey="data_url"
+                                >
+                                    {({
+                                    imageList,
+                                    onImageUpload,
+                                    onImageRemoveAll,
+                                    onImageUpdate,
+                                    onImageRemove,
+                                    isDragging,
+                                    dragProps,
+                                    }) => (
+                                    // write your building UI
+                                    <div className="upload__image-wrapper">
+                                        <button
+                                        style={isDragging ? { color: 'red' } : undefined}
+                                        onClick={onImageUpload}
+                                        {...dragProps}
+                                        >
+                                        Click or Drop here
+                                        </button>
+                                        &nbsp;
+                                        <button onClick={onImageRemoveAll}>Remove all images</button>
+                                        {imageList.map((image, index) => (
+                                        <div key={index} className="image-item">
+                                            <img src={image.dataURLKey} alt="" width="100" />
+                                            <div className="image-item__btn-wrapper">
+                                                <button onClick={() => onImageUpdate(index)}>Update</button>
+                                                <button onClick={() => onImageRemove(index)}>Remove</button>
+                                            </div>
+                                        </div>
+                                        ))}
+                                    </div>
+                                    )}
+                                </ImageUploading>
                             </div>
                         </div>
                     </div>

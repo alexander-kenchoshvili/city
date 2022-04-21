@@ -31,6 +31,7 @@ import AdminNews from './components/Admin/AdminNews';
 import MyTeam from './components/Admin/MyTeam';
 import AdminAbout from './components/Admin/AdminAbout';
 import CreateSpectacle from './components/Admin/CreateSpectacle';
+import MySpectaclesEdit from './components/Admin/MySpectaclesEdit';
 
 
 
@@ -95,7 +96,8 @@ function App() {
             <Route path='mynews' element={<AdminNews/>} />
             <Route path='myteam' element={<MyTeam/>} />
             <Route path='aboutus' element={<AdminAbout/>} />
-            <Route path='create' element={<CreateSpectacle/>} />            
+            <Route path='create' element={<CreateSpectacle/>} />  
+            <Route path='editSpectacle' element={<MySpectaclesEdit/>} />          
           </Route>
 
 

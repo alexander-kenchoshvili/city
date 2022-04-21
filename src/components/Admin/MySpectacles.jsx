@@ -34,7 +34,7 @@ function MySpectacles() {
                       <span className='item-name' >ინციდენტი მეტროში</span>
                       <div className='icon-wrap'>
                         <div className='edit-icon' onMouseEnter={handleHoverEdit} onMouseLeave={removeHandlerEdit}  >
-                          <Link to='#'>
+                          <Link to='editSpectacle'>
                             {hoverEdit? <Editfill/> : <EditStroke/> }
                           </Link>
                         </div>
